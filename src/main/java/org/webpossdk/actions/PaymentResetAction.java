@@ -1,3 +1,6 @@
+/*
+Nigiri auto-generated file
+*/
 package org.webpossdk.actions;
 
 import org.webpossdk.objects.*;
@@ -10,27 +13,17 @@ import com.sdkboilerplate.validation.*;
 
 import java.util.*;
 
-{% set parent_class = 'ChainsideAction' -%}
-{% if endpoint.tags -%}
-{% if 'Authenticated' in endpoint.tags -%}
-{% set parent_class = 'ChainsideAuthenticatedAction' -%}
-{% elif 'Authenticating' in endpoint.tags -%}
-{% set parent_class = 'ChainsideAuthenticatingAction' -%}
-{% endif -%}
-{% else %}
-{% endif -%}
-
-public class {{endpoint.namespace | classname }}Action extends {{parent_class}}{
-    public {{endpoint.namespace | classname}}Action(ApiContext ctx){
+public class PaymentResetAction extends ChainsideAuthenticatedAction{
+    public PaymentResetAction(ApiContext ctx){
         super(ctx);
     }
     @Override
     public String getRoute(){
-            return "{{endpoint.route}}";
+            return "/payment-order/{payment_order_uuid}/test/reset";
     }
     @Override
     public String getVerb(){
-        return "{{endpoint.verb}}";
+        return "PATCH";
 
     }
     @Override
@@ -45,28 +38,18 @@ public class {{endpoint.namespace | classname }}Action extends {{parent_class}}{
         }
     @Override
     public Class<? extends SdkBodyType> getRequestBodyClass() {
-        {% if endpoint | request_body_class -%}
-        return {{endpoint | request_body_class }}.class;
-        {% else -%}
         return null;
-        {% endif -%}
-    }
+        }
     @Override
     public Class<? extends SdkBodyType> getResponseBodyClass() {
-        {% if endpoint | response_body_class -%}
-        return {{endpoint | request_body_class }}.class;
-        {% else -%}
-        return null;
-        {% endif -%}
-    }
+        return None.class;
+        }
     @Override
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap<>();
-        {% for header_name, header_value in endpoint.request._headers.items() -%}
-        {% if header_name != 'Authorization' -%}
-        headers.put("{{header_name}}", "{{header_value.value}}");
-        {% endif -%}
-        {% endfor -%}
+        headers.put("Accept", "application/json");
+        headers.put("Content-Type", "application/json");
+        headers.put("X-Api-Version", "v1");
         return headers;
     }
 

@@ -1,4 +1,9 @@
 package org.webpossdk.actions;
 
-public class ChainsideAuthenticatingAction {
+import com.sdkboilerplate.lib.ApiContext;
+
+public abstract class ChainsideAuthenticatingAction extends ChainsideAction {
+    public ChainsideAuthenticatingAction(ApiContext ctx) {
+        super(ctx);
+    }
 }

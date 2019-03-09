@@ -1,0 +1,31 @@
+{
+  "generated": [
+    "src/main/java/org/webpossdk/actions/ClientCredentialsLoginAction.java",
+    "src/main/java/org/webpossdk/actions/CreatePaymentOrderAction.java",
+    "src/main/java/org/webpossdk/actions/DeletePaymentOrderAction.java",
+    "src/main/java/org/webpossdk/actions/GetCallbacksAction.java",
+    "src/main/java/org/webpossdk/actions/GetPaymentOrderAction.java",
+    "src/main/java/org/webpossdk/actions/GetWebPosPaymentsAction.java",
+    "src/main/java/org/webpossdk/actions/PaymentResetAction.java",
+    "src/main/java/org/webpossdk/actions/PaymentUpdateAction.java",
+    "src/main/java/org/webpossdk/objects/Callback.java",
+    "src/main/java/org/webpossdk/objects/CallbackList.java",
+    "src/main/java/org/webpossdk/objects/CallbackPaymentOrder.java",
+    "src/main/java/org/webpossdk/objects/ClientCredentials.java",
+    "src/main/java/org/webpossdk/objects/ClientCredentialsLoginResponse.java",
+    "src/main/java/org/webpossdk/objects/CurrencyRetrieval.java",
+    "src/main/java/org/webpossdk/objects/DepositAccountLite.java",
+    "src/main/java/org/webpossdk/objects/Out.java",
+    "src/main/java/org/webpossdk/objects/PaidStatus.java",
+    "src/main/java/org/webpossdk/objects/PaymentOrderCreation.java",
+    "src/main/java/org/webpossdk/objects/PaymentOrderCreationResponse.java",
+    "src/main/java/org/webpossdk/objects/PaymentOrderCreator.java",
+    "src/main/java/org/webpossdk/objects/PaymentOrderDeletionResponse.java",
+    "src/main/java/org/webpossdk/objects/PaymentOrderList.java",
+    "src/main/java/org/webpossdk/objects/PaymentOrderRetrieval.java",
+    "src/main/java/org/webpossdk/objects/PaymentOrderState.java",
+    "src/main/java/org/webpossdk/objects/PaymentUpdateObject.java",
+    "src/main/java/org/webpossdk/objects/RateRetrieval.java",
+    "src/main/java/org/webpossdk/objects/Transaction.java"
+  ]
+}
