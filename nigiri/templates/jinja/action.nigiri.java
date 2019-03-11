@@ -2,8 +2,9 @@ package org.webpossdk.actions;
 
 import org.webpossdk.objects.*;
 import org.webpossdk.lib.*;
+import org.webpossdk.exceptions.*;
 
-import com.sdkboilerplate.exceptions.SdkHttpException;
+import com.sdkboilerplate.exceptions.*;
 import com.sdkboilerplate.objects.*;
 import com.sdkboilerplate.lib.*;
 import com.sdkboilerplate.validation.*;
@@ -41,6 +42,9 @@ public class {{endpoint.namespace | classname }}Action extends {{parent_class}}{
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
         HashMap<String, Class<? extends SdkHttpException>> errors = new HashMap<>();
         errors.putAll(super.getErrors());
+        {% for error in endpoint.response.errors -%}
+        errors.put("{{ error }}" , {{errors_dict[error] | error_classname}}.class);
+        {% endfor -%}
         return errors;
         }
     @Override
@@ -54,7 +58,7 @@ public class {{endpoint.namespace | classname }}Action extends {{parent_class}}{
     @Override
     public Class<? extends SdkBodyType> getResponseBodyClass() {
         {% if endpoint | response_body_class -%}
-        return {{endpoint | request_body_class }}.class;
+        return {{endpoint | response_body_class }}.class;
         {% else -%}
         return null;
         {% endif -%}
@@ -69,6 +73,26 @@ public class {{endpoint.namespace | classname }}Action extends {{parent_class}}{
         {% endfor -%}
         return headers;
     }
+    {% if endpoint.request.uri_params -%}
+    {% for key in endpoint.request.uri_params -%}
+    public void set{{key | classname}}(String value){
+        this.setRouteParameter("{{key}}", value);
+    }
+    {% endfor -%}
+    {% endif -%}
+    {% if endpoint.request.query_params -%}
+    {% for key in endpoint.request.query_params -%}
+    public void set{{key | classname}}(String value){
+        this.setQueryParameter("{{key}}", value);
+    }
+    {% endfor -%}
+    {% endif -%}
+    {% if endpoint.request.body_params -%}
+    public void set{{endpoint | request_body_class }}({{endpoint | request_body_class }} value)
+        throws ReflectiveOperationException, UnserializableObjectException{
+        this.setRequestBody(value);
+    }
+    {% endif -%}
 
 
 }

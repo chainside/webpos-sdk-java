@@ -1,4 +1,6 @@
 package org.webpossdk.exceptions;
 
-public class ChainsideHttpException {
+import com.sdkboilerplate.exceptions.SdkHttpException;
+
+public class ChainsideHttpException extends SdkHttpException {
 }

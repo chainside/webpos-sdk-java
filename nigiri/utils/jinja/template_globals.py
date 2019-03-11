@@ -1,1 +1,1 @@
-GLOBALS = {}
+GLOBALS = {'print' : print}

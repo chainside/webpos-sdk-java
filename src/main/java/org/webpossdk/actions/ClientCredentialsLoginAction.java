@@ -5,8 +5,9 @@ package org.webpossdk.actions;
 
 import org.webpossdk.objects.*;
 import org.webpossdk.lib.*;
+import org.webpossdk.exceptions.*;
 
-import com.sdkboilerplate.exceptions.SdkHttpException;
+import com.sdkboilerplate.exceptions.*;
 import com.sdkboilerplate.objects.*;
 import com.sdkboilerplate.lib.*;
 import com.sdkboilerplate.validation.*;
@@ -34,6 +35,9 @@ public class ClientCredentialsLoginAction extends ChainsideAuthenticatingAction{
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
         HashMap<String, Class<? extends SdkHttpException>> errors = new HashMap<>();
         errors.putAll(super.getErrors());
+        errors.put("1002" , InvalidGrantTypeException.class);
+        errors.put("1013" , InvalidScopeException.class);
+        errors.put("1001" , UnauthorizedClientException.class);
         return errors;
         }
     @Override
@@ -42,16 +46,18 @@ public class ClientCredentialsLoginAction extends ChainsideAuthenticatingAction{
         }
     @Override
     public Class<? extends SdkBodyType> getResponseBodyClass() {
-        return ClientCredentials.class;
+        return ClientCredentialsLoginResponse.class;
         }
     @Override
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
         headers.put("Accept", "application/json");
-        headers.put("Content-Type", "application/x-www-form-urlencoded");
         headers.put("X-Api-Version", "v1");
         return headers;
     }
-
-
-}
+    public void setClientCredentials(ClientCredentials value)
+        throws ReflectiveOperationException, UnserializableObjectException{
+        this.setRequestBody(value);
+    }
+    }
