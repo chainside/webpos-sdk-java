@@ -10,9 +10,9 @@ import java.util.HashMap;
 
 public class PaymentCompletedCallback extends SdkObject{
     private String createdAt;
+    private String event;
     private Object object;
     private String objectType;
-    private String event;
     public Schema getSchema(){
         return new Schema();
     }
@@ -27,6 +27,12 @@ public class PaymentCompletedCallback extends SdkObject{
     public void setCreatedAt(String value){
         this.createdAt = value;
     }
+    public String getEvent(){
+        return this.event;
+    }
+    public void setEvent(String value){
+        this.event = value;
+    }
     public Object getObject(){
         return this.object;
     }
@@ -38,12 +44,6 @@ public class PaymentCompletedCallback extends SdkObject{
     }
     public void setObjectType(String value){
         this.objectType = value;
-    }
-    public String getEvent(){
-        return this.event;
-    }
-    public void setEvent(String value){
-        this.event = value;
     }
     public PaymentCompletedCallback(){}
 }

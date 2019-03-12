@@ -34,38 +34,44 @@ public class ChainsideClient{
     }
     public CallbackList getCallbacks(String paymentOrderUuid)
         throws ReflectiveOperationException, SdkException{
-        GetCallbacksAction action = (GetCallbacksAction)this.factory.make("get_callbacks");
+        GetCallbacksAction action = (GetCallbacksAction)this.factory.make("getCallbacks");
         action.setPaymentOrderUuid(paymentOrderUuid);
         return (CallbackList)action.run();
         }
     public PaymentOrderRetrieval paymentReset(String paymentOrderUuid)
         throws ReflectiveOperationException, SdkException{
-        PaymentResetAction action = (PaymentResetAction)this.factory.make("payment_reset");
+        PaymentResetAction action = (PaymentResetAction)this.factory.make("paymentReset");
         action.setPaymentOrderUuid(paymentOrderUuid);
         return (PaymentOrderRetrieval)action.run();
         }
     public void paymentUpdate(String paymentOrderUuid,PaymentUpdateObject paymentUpdateObject)
         throws ReflectiveOperationException, SdkException{
-        PaymentUpdateAction action = (PaymentUpdateAction)this.factory.make("payment_update");
+        PaymentUpdateAction action = (PaymentUpdateAction)this.factory.make("paymentUpdate");
         action.setPaymentOrderUuid(paymentOrderUuid);
         action.setPaymentUpdateObject(paymentUpdateObject);
         action.run();
         }
+    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
+        throws ReflectiveOperationException, SdkException{
+        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
+        action.setClientCredentials(clientCredentials);
+        return (ClientCredentialsLoginResponse)action.run();
+        }
     public PaymentOrderDeletionResponse deletePaymentOrder(String paymentOrderUuid)
         throws ReflectiveOperationException, SdkException{
-        DeletePaymentOrderAction action = (DeletePaymentOrderAction)this.factory.make("delete_payment_order");
+        DeletePaymentOrderAction action = (DeletePaymentOrderAction)this.factory.make("deletePaymentOrder");
         action.setPaymentOrderUuid(paymentOrderUuid);
         return (PaymentOrderDeletionResponse)action.run();
         }
     public PaymentOrderRetrieval getPaymentOrder(String paymentOrderUuid)
         throws ReflectiveOperationException, SdkException{
-        GetPaymentOrderAction action = (GetPaymentOrderAction)this.factory.make("get_payment_order");
+        GetPaymentOrderAction action = (GetPaymentOrderAction)this.factory.make("getPaymentOrder");
         action.setPaymentOrderUuid(paymentOrderUuid);
         return (PaymentOrderRetrieval)action.run();
         }
     public PaymentOrderList getWebPosPayments(String posUuid,String status)
         throws ReflectiveOperationException, SdkException{
-        GetWebPosPaymentsAction action = (GetWebPosPaymentsAction)this.factory.make("get_web_pos_payments");
+        GetWebPosPaymentsAction action = (GetWebPosPaymentsAction)this.factory.make("getWebPosPayments");
         action.setPosUuid(posUuid);
         if (status != null){
         action.setStatus(status);
@@ -74,15 +80,9 @@ public class ChainsideClient{
         }
     public PaymentOrderCreationResponse createPaymentOrder(PaymentOrderCreation paymentOrderCreation)
         throws ReflectiveOperationException, SdkException{
-        CreatePaymentOrderAction action = (CreatePaymentOrderAction)this.factory.make("create_payment_order");
+        CreatePaymentOrderAction action = (CreatePaymentOrderAction)this.factory.make("createPaymentOrder");
         action.setPaymentOrderCreation(paymentOrderCreation);
         return (PaymentOrderCreationResponse)action.run();
-        }
-    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
-        throws ReflectiveOperationException, SdkException{
-        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("client_credentials_login");
-        action.setClientCredentials(clientCredentials);
-        return (ClientCredentialsLoginResponse)action.run();
         }
     public void login() throws Exception {
         ClientCredentials credentials = new ClientCredentials();

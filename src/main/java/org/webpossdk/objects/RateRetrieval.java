@@ -9,9 +9,9 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class RateRetrieval extends SdkObject{
-    public String created_at;
-    public String source;
     public String value;
+    public String source;
+    public String created_at;
     public Schema getSchema(){
             return new Schema();
         }
@@ -19,11 +19,11 @@ public class RateRetrieval extends SdkObject{
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap<>();
         return subObjects;
         }
-        public String getCreatedAt(){
-            return this.created_at;
+        public String getValue(){
+            return this.value;
         };
-        public void setCreatedAt(String value){
-            this.created_at = value;
+        public void setValue(String value){
+            this.value = value;
         }
         public String getSource(){
             return this.source;
@@ -31,11 +31,11 @@ public class RateRetrieval extends SdkObject{
         public void setSource(String value){
             this.source = value;
         }
-        public String getValue(){
-            return this.value;
+        public String getCreatedAt(){
+            return this.created_at;
         };
-        public void setValue(String value){
-            this.value = value;
+        public void setCreatedAt(String value){
+            this.created_at = value;
         }
         public RateRetrieval(){}
 }

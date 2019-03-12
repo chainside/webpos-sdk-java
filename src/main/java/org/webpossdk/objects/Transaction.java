@@ -10,12 +10,12 @@ import java.util.HashMap;
 
 public class Transaction extends SdkObject{
     public String status;
-    public String normalized_txid;
-    public String txid;
-    public String created_at;
-    public OutCollection outs;
     public String blockchain_status;
+    public String txid;
+    public OutCollection outs;
+    public String normalized_txid;
     public Integer outs_sum;
+    public String created_at;
     public Schema getSchema(){
             return new Schema();
         }
@@ -30,11 +30,11 @@ public class Transaction extends SdkObject{
         public void setStatus(String value){
             this.status = value;
         }
-        public String getNormalizedTxid(){
-            return this.normalized_txid;
+        public String getBlockchainStatus(){
+            return this.blockchain_status;
         };
-        public void setNormalizedTxid(String value){
-            this.normalized_txid = value;
+        public void setBlockchainStatus(String value){
+            this.blockchain_status = value;
         }
         public String getTxid(){
             return this.txid;
@@ -42,29 +42,29 @@ public class Transaction extends SdkObject{
         public void setTxid(String value){
             this.txid = value;
         }
-        public String getCreatedAt(){
-            return this.created_at;
-        };
-        public void setCreatedAt(String value){
-            this.created_at = value;
-        }
         public OutCollection getOuts(){
             return this.outs;
         };
         public void setOuts(OutCollection value){
             this.outs = value;
         }
-        public String getBlockchainStatus(){
-            return this.blockchain_status;
+        public String getNormalizedTxid(){
+            return this.normalized_txid;
         };
-        public void setBlockchainStatus(String value){
-            this.blockchain_status = value;
+        public void setNormalizedTxid(String value){
+            this.normalized_txid = value;
         }
         public Integer getOutsSum(){
             return this.outs_sum;
         };
         public void setOutsSum(Integer value){
             this.outs_sum = value;
+        }
+        public String getCreatedAt(){
+            return this.created_at;
+        };
+        public void setCreatedAt(String value){
+            this.created_at = value;
         }
         public Transaction(){}
 }

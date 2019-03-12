@@ -9,8 +9,8 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class PaidStatus extends SdkObject{
-    public Integer crypto;
     public String fiat;
+    public Integer crypto;
     public Schema getSchema(){
             return new Schema();
         }
@@ -18,17 +18,17 @@ public class PaidStatus extends SdkObject{
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap<>();
         return subObjects;
         }
-        public Integer getCrypto(){
-            return this.crypto;
-        };
-        public void setCrypto(Integer value){
-            this.crypto = value;
-        }
         public String getFiat(){
             return this.fiat;
         };
         public void setFiat(String value){
             this.fiat = value;
+        }
+        public Integer getCrypto(){
+            return this.crypto;
+        };
+        public void setCrypto(Integer value){
+            this.crypto = value;
         }
         public PaidStatus(){}
 }

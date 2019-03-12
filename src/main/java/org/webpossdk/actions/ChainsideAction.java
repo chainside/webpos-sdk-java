@@ -5,6 +5,7 @@ import com.sdkboilerplate.exceptions.SdkHttpException;
 import com.sdkboilerplate.hooks.FailureHook;
 import com.sdkboilerplate.hooks.PreSendHook;
 import com.sdkboilerplate.hooks.SuccessHook;
+
 import com.sdkboilerplate.lib.ApiContext;
 
 import java.util.ArrayList;
@@ -26,9 +27,7 @@ public abstract class ChainsideAction extends Action {
     }
 
     @Override
-    public ArrayList<Class<? extends PreSendHook>> getPreSendHooks() {
-        return new ArrayList<>();
-    }
+    public ArrayList<Class<? extends PreSendHook>> getPreSendHooks() { return new ArrayList<>(); }
 
     @Override
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {

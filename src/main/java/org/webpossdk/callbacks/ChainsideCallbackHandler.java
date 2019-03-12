@@ -1,20 +1,26 @@
 package org.webpossdk.callbacks;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sdkboilerplate.callbacks.CallbackHandler;
+import com.sdkboilerplate.exceptions.CallbackParsingException;
 import com.sdkboilerplate.objects.SdkObject;
 import org.webpossdk.api.ChainsideHeaders;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 
 public class ChainsideCallbackHandler extends CallbackHandler {
 
     @Override
-    public String getCallbackNamespace(ByteBuffer rawBody) {
-        Gson gson = new Gson();
-        HashMap<String, Object> body = (HashMap<String, Object>) gson.fromJson(rawBody.toString(), HashMap.class);
-        return body.get("event").toString();
+    public String getCallbackNamespace(ByteBuffer rawBody) throws CallbackParsingException{
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            HashMap<String, Object> body = (HashMap<String, Object>) mapper.readValue(rawBody.toString(), HashMap.class);
+            return body.get("event").toString();
+        }catch (IOException e){
+            throw new CallbackParsingException();
+        }
     }
 
     @Override

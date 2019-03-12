@@ -32,7 +32,7 @@ public class ChainsideClient{
     {% for endpoint in endpoints -%}
     public {{endpoint | request_return_type}} {{endpoint.namespace | camel_case}}({{endpoint | params_to_init}})
         throws ReflectiveOperationException, SdkException{
-        {{endpoint.namespace | classname }}Action action = ({{endpoint.namespace | classname }}Action)this.factory.make("{{endpoint.namespace}}");
+        {{endpoint.namespace | classname }}Action action = ({{endpoint.namespace | classname }}Action)this.factory.make("{{endpoint.namespace | camel_case}}");
         {% if endpoint.request.uri_params -%}
         {% for key in endpoint.request.uri_params -%}
         action.set{{key | classname}}({{key | camel_case}});

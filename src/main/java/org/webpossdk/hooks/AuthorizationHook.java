@@ -3,10 +3,11 @@ package org.webpossdk.hooks;
 import com.sdkboilerplate.hooks.PreSendHook;
 import com.sdkboilerplate.http.Headers;
 import com.sdkboilerplate.http.SdkRequest;
+import com.sdkboilerplate.lib.ApiContext;
 import org.webpossdk.api.ChainsideApiContext;
 
 public class AuthorizationHook extends PreSendHook {
-    public AuthorizationHook(ChainsideApiContext ctx, SdkRequest sdkRequest) {
+    public AuthorizationHook(ApiContext ctx, SdkRequest sdkRequest) {
         super(ctx, sdkRequest);
     }
 

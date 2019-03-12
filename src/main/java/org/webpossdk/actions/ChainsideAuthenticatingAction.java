@@ -14,6 +14,7 @@ public abstract class ChainsideAuthenticatingAction extends ChainsideAction {
     public ArrayList<Class<? extends PreSendHook>> getPreSendHooks() {
         ArrayList<Class<? extends PreSendHook>> preSendHooks = new ArrayList<>();
         preSendHooks.add(AuthenticationHook.class);
+        preSendHooks.addAll(super.getPreSendHooks());
         return preSendHooks;
     }
 }
