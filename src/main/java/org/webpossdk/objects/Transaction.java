@@ -9,12 +9,12 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class Transaction extends SdkObject{
-    public String txid;
     public String normalized_txid;
-    public OutCollection outs;
-    public String created_at;
-    public String status;
     public Integer outs_sum;
+    public String status;
+    public String txid;
+    public String created_at;
+    public OutCollection outs;
     public String blockchain_status;
     public Schema getSchema(){
             return new Schema();
@@ -24,29 +24,17 @@ public class Transaction extends SdkObject{
         subObjects.put("outs", OutCollection.class);
         return subObjects;
         }
-        public String getTxid(){
-            return this.txid;
-        };
-        public void setTxid(String value){
-            this.txid = value;
-        }
         public String getNormalizedTxid(){
             return this.normalized_txid;
         };
         public void setNormalizedTxid(String value){
             this.normalized_txid = value;
         }
-        public OutCollection getOuts(){
-            return this.outs;
+        public Integer getOutsSum(){
+            return this.outs_sum;
         };
-        public void setOuts(OutCollection value){
-            this.outs = value;
-        }
-        public String getCreatedAt(){
-            return this.created_at;
-        };
-        public void setCreatedAt(String value){
-            this.created_at = value;
+        public void setOutsSum(Integer value){
+            this.outs_sum = value;
         }
         public String getStatus(){
             return this.status;
@@ -54,11 +42,23 @@ public class Transaction extends SdkObject{
         public void setStatus(String value){
             this.status = value;
         }
-        public Integer getOutsSum(){
-            return this.outs_sum;
+        public String getTxid(){
+            return this.txid;
         };
-        public void setOutsSum(Integer value){
-            this.outs_sum = value;
+        public void setTxid(String value){
+            this.txid = value;
+        }
+        public String getCreatedAt(){
+            return this.created_at;
+        };
+        public void setCreatedAt(String value){
+            this.created_at = value;
+        }
+        public OutCollection getOuts(){
+            return this.outs;
+        };
+        public void setOuts(OutCollection value){
+            this.outs = value;
         }
         public String getBlockchainStatus(){
             return this.blockchain_status;

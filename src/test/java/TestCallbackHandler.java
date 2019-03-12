@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.powermock.reflect.Whitebox;
 import org.webpossdk.api.ChainsideApiContext;
+import org.webpossdk.api.ChainsideClient;
 import org.webpossdk.api.ChainsideHeaders;
 import org.webpossdk.callbacks.ChainsideCallbackHandler;
 import org.webpossdk.lib.Hashers;
@@ -105,4 +106,5 @@ public class TestCallbackHandler {
         Assert.assertEquals(parsed.btc_amount, (Integer) 3);
 
     }
+    
 }

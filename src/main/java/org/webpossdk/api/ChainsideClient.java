@@ -54,6 +54,12 @@ public class ChainsideClient{
         action.setPaymentOrderCreation(paymentOrderCreation);
         return (PaymentOrderCreationResponse)action.run();
         }
+    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
+        throws ReflectiveOperationException, SdkException{
+        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
+        action.setClientCredentials(clientCredentials);
+        return (ClientCredentialsLoginResponse)action.run();
+        }
     public CallbackList getCallbacks(String paymentOrderUuid)
         throws ReflectiveOperationException, SdkException{
         GetCallbacksAction action = (GetCallbacksAction)this.factory.make("getCallbacks");
@@ -72,12 +78,6 @@ public class ChainsideClient{
         action.setPaymentOrderUuid(paymentOrderUuid);
         action.setPaymentUpdateObject(paymentUpdateObject);
         action.run();
-        }
-    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
-        throws ReflectiveOperationException, SdkException{
-        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
-        action.setClientCredentials(clientCredentials);
-        return (ClientCredentialsLoginResponse)action.run();
         }
     public void login() throws Exception {
         ChainsideAuthenticatedAction.login(this.ctx);

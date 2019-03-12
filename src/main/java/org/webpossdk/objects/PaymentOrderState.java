@@ -9,11 +9,11 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class PaymentOrderState extends SdkObject{
+    public String blockchain_status;
     public PaidStatus paid;
     public PaidStatus in_confirmation;
-    public String blockchain_status;
-    public String status;
     public PaidStatus unpaid;
+    public String status;
     public Schema getSchema(){
             return new Schema();
         }
@@ -23,6 +23,12 @@ public class PaymentOrderState extends SdkObject{
         subObjects.put("in_confirmation" , PaidStatus.class);
         subObjects.put("unpaid" , PaidStatus.class);
         return subObjects;
+        }
+        public String getBlockchainStatus(){
+            return this.blockchain_status;
+        };
+        public void setBlockchainStatus(String value){
+            this.blockchain_status = value;
         }
         public PaidStatus getPaid(){
             return this.paid;
@@ -36,23 +42,17 @@ public class PaymentOrderState extends SdkObject{
         public void setInConfirmation(PaidStatus value){
             this.in_confirmation = value;
         }
-        public String getBlockchainStatus(){
-            return this.blockchain_status;
+        public PaidStatus getUnpaid(){
+            return this.unpaid;
         };
-        public void setBlockchainStatus(String value){
-            this.blockchain_status = value;
+        public void setUnpaid(PaidStatus value){
+            this.unpaid = value;
         }
         public String getStatus(){
             return this.status;
         };
         public void setStatus(String value){
             this.status = value;
-        }
-        public PaidStatus getUnpaid(){
-            return this.unpaid;
-        };
-        public void setUnpaid(PaidStatus value){
-            this.unpaid = value;
         }
         public PaymentOrderState(){}
 }

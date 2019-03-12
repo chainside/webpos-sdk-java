@@ -9,8 +9,8 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class Out extends SdkObject{
-    public Integer amount;
     public Integer n;
+    public Integer amount;
     public Schema getSchema(){
             return new Schema();
         }
@@ -18,17 +18,17 @@ public class Out extends SdkObject{
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap<>();
         return subObjects;
         }
-        public Integer getAmount(){
-            return this.amount;
-        };
-        public void setAmount(Integer value){
-            this.amount = value;
-        }
         public Integer getN(){
             return this.n;
         };
         public void setN(Integer value){
             this.n = value;
+        }
+        public Integer getAmount(){
+            return this.amount;
+        };
+        public void setAmount(Integer value){
+            this.amount = value;
         }
         public Out(){}
 }

@@ -9,12 +9,12 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class PaymentOrderCreation extends SdkObject{
-    public String continue_url;
-    public String details;
     public Integer required_confirmations;
+    public String reference;
     public String callback_url;
     public String amount;
-    public String reference;
+    public String details;
+    public String continue_url;
     public String cancel_url;
     public Schema getSchema(){
             return new Schema();
@@ -23,23 +23,17 @@ public class PaymentOrderCreation extends SdkObject{
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap<>();
         return subObjects;
         }
-        public String getContinueUrl(){
-            return this.continue_url;
-        };
-        public void setContinueUrl(String value){
-            this.continue_url = value;
-        }
-        public String getDetails(){
-            return this.details;
-        };
-        public void setDetails(String value){
-            this.details = value;
-        }
         public Integer getRequiredConfirmations(){
             return this.required_confirmations;
         };
         public void setRequiredConfirmations(Integer value){
             this.required_confirmations = value;
+        }
+        public String getReference(){
+            return this.reference;
+        };
+        public void setReference(String value){
+            this.reference = value;
         }
         public String getCallbackUrl(){
             return this.callback_url;
@@ -53,11 +47,17 @@ public class PaymentOrderCreation extends SdkObject{
         public void setAmount(String value){
             this.amount = value;
         }
-        public String getReference(){
-            return this.reference;
+        public String getDetails(){
+            return this.details;
         };
-        public void setReference(String value){
-            this.reference = value;
+        public void setDetails(String value){
+            this.details = value;
+        }
+        public String getContinueUrl(){
+            return this.continue_url;
+        };
+        public void setContinueUrl(String value){
+            this.continue_url = value;
         }
         public String getCancelUrl(){
             return this.cancel_url;
