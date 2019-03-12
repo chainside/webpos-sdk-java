@@ -9,10 +9,10 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class PaymentCompletedCallback extends SdkObject{
-    private String createdAt;
     private String event;
     private Object object;
     private String objectType;
+    private String createdAt;
     public Schema getSchema(){
         return new Schema();
     }
@@ -20,12 +20,6 @@ public class PaymentCompletedCallback extends SdkObject{
         HashMap<String, Class<? extends SdkBodyType>>  subObjects = new HashMap<>();
         subObjects.put("object", CallbackPaymentOrder.class);
         return subObjects;
-    }
-    public String getCreatedAt(){
-        return this.createdAt;
-    }
-    public void setCreatedAt(String value){
-        this.createdAt = value;
     }
     public String getEvent(){
         return this.event;
@@ -44,6 +38,12 @@ public class PaymentCompletedCallback extends SdkObject{
     }
     public void setObjectType(String value){
         this.objectType = value;
+    }
+    public String getCreatedAt(){
+        return this.createdAt;
+    }
+    public void setCreatedAt(String value){
+        this.createdAt = value;
     }
     public PaymentCompletedCallback(){}
 }

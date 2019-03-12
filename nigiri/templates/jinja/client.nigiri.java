@@ -57,13 +57,6 @@ public class ChainsideClient{
     }
     {% endfor -%}
     public void login() throws Exception {
-        ClientCredentials credentials = new ClientCredentials();
-        credentials.setGrantType("client_credentials");
-        credentials.setScope("*");
-        ChainsideActionFactory factory = new ChainsideActionFactory(this.ctx);
-        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction) factory.make("clientCredentialsLogin");
-        action.setClientCredentials(credentials);
-        String accessToken = ((ClientCredentialsLoginResponse) action.run()).getAccessToken();
-        this.ctx.getCache().set(this.config.get("accessTokenKey").toString(), accessToken);
+        ChainsideAuthenticatedAction.login(this.ctx);
     }
 }

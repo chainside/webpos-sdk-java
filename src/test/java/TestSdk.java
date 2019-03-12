@@ -13,14 +13,15 @@ public class TestSdk {
     public TestSdk() {
     }
 
+
     @Test
     public void TestClientLogin() throws ConfigurationException, Exception {
 
         HashMap<String, Object> config = new HashMap<>();
         config.put("mode", "live");
-        config.put("clientId", "ca486cd8-0af6-4b1d-833c-11f640978d19");
-        config.put("secret", "54104ad9ddef9511905d295c0c384e1507bf011dc4e7aad4d40d2434e2d6f2c6");
-
+        config.put("clientId", "8a8351ab-97f9-42a5-972f-21de8612d4ae");
+        config.put("secret", "4eb2f11fd7fd5989c22c3f3f5492bd72ac5c8213b5cdec0cabfbc0f6868ed136");
+        config.put("verifySSL", false);
         ChainsideClient client = new ChainsideClient(config);
 
         PaymentOrderCreation paymentOrder = new PaymentOrderCreation();
@@ -29,6 +30,11 @@ public class TestSdk {
         paymentOrder.setDetails("#1det");
         paymentOrder.setRequiredConfirmations(3);
         PaymentOrderCreationResponse resp = client.createPaymentOrder(paymentOrder);
+
+    }
+
+    @Test
+    public void TestCallbackHandler(){
 
     }
 }

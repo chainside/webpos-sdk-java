@@ -32,6 +32,12 @@ public class ChainsideClient{
 
 
     }
+    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
+        throws ReflectiveOperationException, SdkException{
+        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
+        action.setClientCredentials(clientCredentials);
+        return (ClientCredentialsLoginResponse)action.run();
+        }
     public CallbackList getCallbacks(String paymentOrderUuid)
         throws ReflectiveOperationException, SdkException{
         GetCallbacksAction action = (GetCallbacksAction)this.factory.make("getCallbacks");
@@ -50,12 +56,6 @@ public class ChainsideClient{
         action.setPaymentOrderUuid(paymentOrderUuid);
         action.setPaymentUpdateObject(paymentUpdateObject);
         action.run();
-        }
-    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
-        throws ReflectiveOperationException, SdkException{
-        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
-        action.setClientCredentials(clientCredentials);
-        return (ClientCredentialsLoginResponse)action.run();
         }
     public PaymentOrderDeletionResponse deletePaymentOrder(String paymentOrderUuid)
         throws ReflectiveOperationException, SdkException{
@@ -85,13 +85,6 @@ public class ChainsideClient{
         return (PaymentOrderCreationResponse)action.run();
         }
     public void login() throws Exception {
-        ClientCredentials credentials = new ClientCredentials();
-        credentials.setGrantType("client_credentials");
-        credentials.setScope("*");
-        ChainsideActionFactory factory = new ChainsideActionFactory(this.ctx);
-        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction) factory.make("clientCredentialsLogin");
-        action.setClientCredentials(credentials);
-        String accessToken = ((ClientCredentialsLoginResponse) action.run()).getAccessToken();
-        this.ctx.getCache().set(this.config.get("accessTokenKey").toString(), accessToken);
+        ChainsideAuthenticatedAction.login(this.ctx);
     }
 }

@@ -9,9 +9,9 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class DepositAccountLite extends SdkObject{
-    public String name;
-    public String uuid;
     public String type;
+    public String uuid;
+    public String name;
     public Schema getSchema(){
             return new Schema();
         }
@@ -19,11 +19,11 @@ public class DepositAccountLite extends SdkObject{
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap<>();
         return subObjects;
         }
-        public String getName(){
-            return this.name;
+        public String getType(){
+            return this.type;
         };
-        public void setName(String value){
-            this.name = value;
+        public void setType(String value){
+            this.type = value;
         }
         public String getUuid(){
             return this.uuid;
@@ -31,11 +31,11 @@ public class DepositAccountLite extends SdkObject{
         public void setUuid(String value){
             this.uuid = value;
         }
-        public String getType(){
-            return this.type;
+        public String getName(){
+            return this.name;
         };
-        public void setType(String value){
-            this.type = value;
+        public void setName(String value){
+            this.name = value;
         }
         public DepositAccountLite(){}
 }
