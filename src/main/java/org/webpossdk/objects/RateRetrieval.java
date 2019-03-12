@@ -10,8 +10,8 @@ import java.util.HashMap;
 
 public class RateRetrieval extends SdkObject{
     public String value;
-    public String source;
     public String created_at;
+    public String source;
     public Schema getSchema(){
             return new Schema();
         }
@@ -25,17 +25,17 @@ public class RateRetrieval extends SdkObject{
         public void setValue(String value){
             this.value = value;
         }
-        public String getSource(){
-            return this.source;
-        };
-        public void setSource(String value){
-            this.source = value;
-        }
         public String getCreatedAt(){
             return this.created_at;
         };
         public void setCreatedAt(String value){
             this.created_at = value;
+        }
+        public String getSource(){
+            return this.source;
+        };
+        public void setSource(String value){
+            this.source = value;
         }
         public RateRetrieval(){}
 }

@@ -14,11 +14,6 @@ public class ChainsideClient{
     private ChainsideApiContext ctx;
 
     public ChainsideClient(HashMap<String, Object> config) throws ConfigurationException, Exception{
-        config.putIfAbsent("version", "v1");
-        config.putIfAbsent("accessTokenKey", "___chainside.access.token___");
-        config.putIfAbsent("timeout", 10);
-        config.putIfAbsent("verifySSL", true);
-        config.putIfAbsent("cacheDriver", "2k");
 
         this.config = config;
         this.ctx = new ChainsideApiContext(config);

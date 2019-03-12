@@ -43,7 +43,6 @@ public abstract class ChainsideAction extends Action {
         ObjectMapper mapper = new ObjectMapper();
         try {
             HashMap<String, Object> jsonBody = mapper.readValue(sdkResponse.getRawBody(), HashMap.class);
-            System.out.println(jsonBody.get("error_code").toString());
             return jsonBody.get("error_code").toString();
         }catch (IOException e){
             throw new DeserializationException(e.getMessage());

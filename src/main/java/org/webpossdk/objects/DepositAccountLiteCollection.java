@@ -7,6 +7,7 @@ import com.sdkboilerplate.objects.*;
 import com.sdkboilerplate.validation.*;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class DepositAccountLiteCollection extends SdkCollection<DepositAccountLite>{
         public Schema getSchema(){
@@ -14,5 +15,8 @@ public class DepositAccountLiteCollection extends SdkCollection<DepositAccountLi
         }
         public static Class<DepositAccountLite> getElementsClass(){
                 return DepositAccountLite.class;
+        }
+        public DepositAccountLiteCollection(ArrayList<DepositAccountLite> elements){
+                super(elements);
         }
 }

@@ -7,6 +7,7 @@ import com.sdkboilerplate.objects.*;
 import com.sdkboilerplate.validation.*;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class CallbackListCollection extends SdkCollection<CallbackList>{
         public Schema getSchema(){
@@ -14,5 +15,8 @@ public class CallbackListCollection extends SdkCollection<CallbackList>{
         }
         public static Class<CallbackList> getElementsClass(){
                 return CallbackList.class;
+        }
+        public CallbackListCollection(ArrayList<CallbackList> elements){
+                super(elements);
         }
 }

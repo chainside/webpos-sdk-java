@@ -9,14 +9,14 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class PaymentOrderCreationResponse extends SdkObject{
-    public Integer amount;
-    public Integer expires_in;
     public String redirect_url;
-    public RateRetrieval rate;
-    public String uuid;
     public String uri;
     public String address;
+    public String uuid;
+    public RateRetrieval rate;
+    public Integer expires_in;
     public String expiration_time;
+    public Integer amount;
     public Schema getSchema(){
             return new Schema();
         }
@@ -25,35 +25,11 @@ public class PaymentOrderCreationResponse extends SdkObject{
         subObjects.put("rate" , RateRetrieval.class);
         return subObjects;
         }
-        public Integer getAmount(){
-            return this.amount;
-        };
-        public void setAmount(Integer value){
-            this.amount = value;
-        }
-        public Integer getExpiresIn(){
-            return this.expires_in;
-        };
-        public void setExpiresIn(Integer value){
-            this.expires_in = value;
-        }
         public String getRedirectUrl(){
             return this.redirect_url;
         };
         public void setRedirectUrl(String value){
             this.redirect_url = value;
-        }
-        public RateRetrieval getRate(){
-            return this.rate;
-        };
-        public void setRate(RateRetrieval value){
-            this.rate = value;
-        }
-        public String getUuid(){
-            return this.uuid;
-        };
-        public void setUuid(String value){
-            this.uuid = value;
         }
         public String getUri(){
             return this.uri;
@@ -67,11 +43,35 @@ public class PaymentOrderCreationResponse extends SdkObject{
         public void setAddress(String value){
             this.address = value;
         }
+        public String getUuid(){
+            return this.uuid;
+        };
+        public void setUuid(String value){
+            this.uuid = value;
+        }
+        public RateRetrieval getRate(){
+            return this.rate;
+        };
+        public void setRate(RateRetrieval value){
+            this.rate = value;
+        }
+        public Integer getExpiresIn(){
+            return this.expires_in;
+        };
+        public void setExpiresIn(Integer value){
+            this.expires_in = value;
+        }
         public String getExpirationTime(){
             return this.expiration_time;
         };
         public void setExpirationTime(String value){
             this.expiration_time = value;
+        }
+        public Integer getAmount(){
+            return this.amount;
+        };
+        public void setAmount(Integer value){
+            this.amount = value;
         }
         public PaymentOrderCreationResponse(){}
 }

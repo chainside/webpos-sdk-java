@@ -7,6 +7,7 @@ import com.sdkboilerplate.objects.*;
 import com.sdkboilerplate.validation.*;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class PaymentOrderDeletionResponseCollection extends SdkCollection<PaymentOrderDeletionResponse>{
         public Schema getSchema(){
@@ -14,5 +15,8 @@ public class PaymentOrderDeletionResponseCollection extends SdkCollection<Paymen
         }
         public static Class<PaymentOrderDeletionResponse> getElementsClass(){
                 return PaymentOrderDeletionResponse.class;
+        }
+        public PaymentOrderDeletionResponseCollection(ArrayList<PaymentOrderDeletionResponse> elements){
+                super(elements);
         }
 }

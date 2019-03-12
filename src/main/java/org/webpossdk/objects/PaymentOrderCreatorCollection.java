@@ -7,6 +7,7 @@ import com.sdkboilerplate.objects.*;
 import com.sdkboilerplate.validation.*;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class PaymentOrderCreatorCollection extends SdkCollection<PaymentOrderCreator>{
         public Schema getSchema(){
@@ -14,5 +15,8 @@ public class PaymentOrderCreatorCollection extends SdkCollection<PaymentOrderCre
         }
         public static Class<PaymentOrderCreator> getElementsClass(){
                 return PaymentOrderCreator.class;
+        }
+        public PaymentOrderCreatorCollection(ArrayList<PaymentOrderCreator> elements){
+                super(elements);
         }
 }

@@ -7,6 +7,7 @@ import com.sdkboilerplate.objects.*;
 import com.sdkboilerplate.validation.*;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class ClientCredentialsCollection extends SdkCollection<ClientCredentials>{
         public Schema getSchema(){
@@ -14,5 +15,8 @@ public class ClientCredentialsCollection extends SdkCollection<ClientCredentials
         }
         public static Class<ClientCredentials> getElementsClass(){
                 return ClientCredentials.class;
+        }
+        public ClientCredentialsCollection(ArrayList<ClientCredentials> elements){
+                super(elements);
         }
 }

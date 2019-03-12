@@ -28,7 +28,7 @@ public class ChainsideCallbackHandler extends CallbackHandler {
     public String getCallbackNamespace(byte[] rawBody) throws CallbackParsingException {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            HashMap<String, Object> body = (HashMap<String, Object>) mapper.readValue(Arrays.toString(rawBody), HashMap.class);
+            HashMap<String, Object> body = (HashMap<String, Object>) mapper.readValue(new String(rawBody), HashMap.class);
             return body.get("event").toString();
         } catch (IOException e) {
             throw new CallbackParsingException();

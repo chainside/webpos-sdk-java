@@ -10,9 +10,9 @@ import java.util.HashMap;
 
 public class PaymentOrderCreator extends SdkObject{
     public DepositAccountLite deposit_account;
+    public String name;
     public String type;
     public String uuid;
-    public String name;
     public Schema getSchema(){
             return new Schema();
         }
@@ -27,6 +27,12 @@ public class PaymentOrderCreator extends SdkObject{
         public void setDepositAccount(DepositAccountLite value){
             this.deposit_account = value;
         }
+        public String getName(){
+            return this.name;
+        };
+        public void setName(String value){
+            this.name = value;
+        }
         public String getType(){
             return this.type;
         };
@@ -38,12 +44,6 @@ public class PaymentOrderCreator extends SdkObject{
         };
         public void setUuid(String value){
             this.uuid = value;
-        }
-        public String getName(){
-            return this.name;
-        };
-        public void setName(String value){
-            this.name = value;
         }
         public PaymentOrderCreator(){}
 }

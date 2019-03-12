@@ -17,11 +17,6 @@ public class ChainsideClient{
     private ChainsideApiContext ctx;
 
     public ChainsideClient(HashMap<String, Object> config) throws ConfigurationException, Exception{
-        config.putIfAbsent("version", "v1");
-        config.putIfAbsent("accessTokenKey", "___chainside.access.token___");
-        config.putIfAbsent("timeout", 10);
-        config.putIfAbsent("verifySSL", true);
-        config.putIfAbsent("cacheDriver", "2k");
 
         this.config = config;
         this.ctx = new ChainsideApiContext(config);
@@ -32,31 +27,6 @@ public class ChainsideClient{
 
 
     }
-    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
-        throws ReflectiveOperationException, SdkException{
-        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
-        action.setClientCredentials(clientCredentials);
-        return (ClientCredentialsLoginResponse)action.run();
-        }
-    public CallbackList getCallbacks(String paymentOrderUuid)
-        throws ReflectiveOperationException, SdkException{
-        GetCallbacksAction action = (GetCallbacksAction)this.factory.make("getCallbacks");
-        action.setPaymentOrderUuid(paymentOrderUuid);
-        return (CallbackList)action.run();
-        }
-    public PaymentOrderRetrieval paymentReset(String paymentOrderUuid)
-        throws ReflectiveOperationException, SdkException{
-        PaymentResetAction action = (PaymentResetAction)this.factory.make("paymentReset");
-        action.setPaymentOrderUuid(paymentOrderUuid);
-        return (PaymentOrderRetrieval)action.run();
-        }
-    public void paymentUpdate(String paymentOrderUuid,PaymentUpdateObject paymentUpdateObject)
-        throws ReflectiveOperationException, SdkException{
-        PaymentUpdateAction action = (PaymentUpdateAction)this.factory.make("paymentUpdate");
-        action.setPaymentOrderUuid(paymentOrderUuid);
-        action.setPaymentUpdateObject(paymentUpdateObject);
-        action.run();
-        }
     public PaymentOrderDeletionResponse deletePaymentOrder(String paymentOrderUuid)
         throws ReflectiveOperationException, SdkException{
         DeletePaymentOrderAction action = (DeletePaymentOrderAction)this.factory.make("deletePaymentOrder");
@@ -83,6 +53,31 @@ public class ChainsideClient{
         CreatePaymentOrderAction action = (CreatePaymentOrderAction)this.factory.make("createPaymentOrder");
         action.setPaymentOrderCreation(paymentOrderCreation);
         return (PaymentOrderCreationResponse)action.run();
+        }
+    public CallbackList getCallbacks(String paymentOrderUuid)
+        throws ReflectiveOperationException, SdkException{
+        GetCallbacksAction action = (GetCallbacksAction)this.factory.make("getCallbacks");
+        action.setPaymentOrderUuid(paymentOrderUuid);
+        return (CallbackList)action.run();
+        }
+    public PaymentOrderRetrieval paymentReset(String paymentOrderUuid)
+        throws ReflectiveOperationException, SdkException{
+        PaymentResetAction action = (PaymentResetAction)this.factory.make("paymentReset");
+        action.setPaymentOrderUuid(paymentOrderUuid);
+        return (PaymentOrderRetrieval)action.run();
+        }
+    public void paymentUpdate(String paymentOrderUuid,PaymentUpdateObject paymentUpdateObject)
+        throws ReflectiveOperationException, SdkException{
+        PaymentUpdateAction action = (PaymentUpdateAction)this.factory.make("paymentUpdate");
+        action.setPaymentOrderUuid(paymentOrderUuid);
+        action.setPaymentUpdateObject(paymentUpdateObject);
+        action.run();
+        }
+    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
+        throws ReflectiveOperationException, SdkException{
+        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
+        action.setClientCredentials(clientCredentials);
+        return (ClientCredentialsLoginResponse)action.run();
         }
     public void login() throws Exception {
         ChainsideAuthenticatedAction.login(this.ctx);
