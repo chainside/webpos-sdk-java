@@ -5,7 +5,8 @@ class SdkObjectsGenerator(Generator):
                           errors_dict=parsed.errors)
         for obj in parsed.objects:
              self.generate('object.nigiri.java', 'src/main/java/org/webpossdk/objects/{}'.format(obj.raw_name.title().replace("_", "")), object=obj)
-             self.generate('collection.nigiri.java', 'src/main/java/org/webpossdk/objects/{}'.format(obj.raw_name.title().replace("_", "") + "Collection"), object=obj)
+             if "Response" not in obj.raw_name.title().replace("_", ""):
+                self.generate('collection.nigiri.java', 'src/main/java/org/webpossdk/objects/{}'.format(obj.raw_name.title().replace("_", "") + "Collection"), object=obj)
         for error in parsed.errors:
             self.generate('exception.nigiri.java', 'src/main/java/org/webpossdk/exceptions/{}'.format('{}{}'.format(error.name.title().replace(' ', ''), 'Exception')), error=error)
         for callback in parsed.callbacks:

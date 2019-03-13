@@ -106,5 +106,5 @@ public class TestCallbackHandler {
         Assert.assertEquals(parsed.btc_amount, (Integer) 3);
 
     }
-    
+
 }

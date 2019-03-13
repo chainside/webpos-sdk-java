@@ -9,29 +9,17 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class ClientCredentialsLoginResponse extends SdkObject{
-    public Integer expires_in;
-    public String scope;
     public String id_token;
     public String access_token;
     public String token_type;
+    public Integer expires_in;
+    public String scope;
     public Schema getSchema(){
             return new Schema();
         }
     public static HashMap<String, Class<? extends SdkBodyType>> getSubObjects() {
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap<>();
         return subObjects;
-        }
-        public Integer getExpiresIn(){
-            return this.expires_in;
-        };
-        public void setExpiresIn(Integer value){
-            this.expires_in = value;
-        }
-        public String getScope(){
-            return this.scope;
-        };
-        public void setScope(String value){
-            this.scope = value;
         }
         public String getIdToken(){
             return this.id_token;
@@ -50,6 +38,18 @@ public class ClientCredentialsLoginResponse extends SdkObject{
         };
         public void setTokenType(String value){
             this.token_type = value;
+        }
+        public Integer getExpiresIn(){
+            return this.expires_in;
+        };
+        public void setExpiresIn(Integer value){
+            this.expires_in = value;
+        }
+        public String getScope(){
+            return this.scope;
+        };
+        public void setScope(String value){
+            this.scope = value;
         }
         public ClientCredentialsLoginResponse(){}
 }

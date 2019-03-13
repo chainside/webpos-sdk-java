@@ -14,12 +14,17 @@ import org.webpossdk.objects.ClientCredentialsLoginResponse;
 
 import java.util.ArrayList;
 
+/**
+ * Superclass for actions which required authorization. It declares the AuthorizationHook as a pre-send hook.
+ */
 public abstract class ChainsideAuthenticatedAction extends ChainsideAction {
     private Integer runs = 0;
+
 
     public ChainsideAuthenticatedAction(ApiContext ctx) {
         super(ctx);
     }
+
 
     @Override
     public ArrayList<Class<? extends PreSendHook>> getPreSendHooks() {
@@ -37,10 +42,16 @@ public abstract class ChainsideAuthenticatedAction extends ChainsideAction {
             if (this.runs > 0) throw new TooManyRerunsException();
             this.runs += 1;
             ChainsideAuthenticatedAction.login(this.getContext());
-            return super.run();
+            return this.run();
         }
     }
 
+    /**
+     * Wrapping method for the authentication which performs the ClientCredentialsLogin action and caches the accessToken
+     *
+     * @throws SdkHttpException If the server responds with a > 400 status code
+     * @throws SdkException     If any error occurs during the serialization / deserialization of objects
+     */
     public static void login(ApiContext ctx) throws SdkHttpException, SdkException, ReflectiveOperationException {
 
         ClientCredentials credentials = new ClientCredentials();

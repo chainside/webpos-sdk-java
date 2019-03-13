@@ -6,6 +6,7 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+
 public class {{object.raw_name|classname}}Collection extends SdkCollection<{{object.raw_name|classname}}>{
         public Schema getSchema(){
                 return new Schema();

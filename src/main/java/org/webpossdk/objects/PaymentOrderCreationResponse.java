@@ -9,14 +9,14 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class PaymentOrderCreationResponse extends SdkObject{
-    public RateRetrieval rate;
-    public Integer amount;
+    public String expiration_time;
     public String uuid;
+    public RateRetrieval rate;
+    public String address;
+    public String uri;
+    public Integer amount;
     public Integer expires_in;
     public String redirect_url;
-    public String uri;
-    public String expiration_time;
-    public String address;
     public Schema getSchema(){
             return new Schema();
         }
@@ -25,23 +25,41 @@ public class PaymentOrderCreationResponse extends SdkObject{
         subObjects.put("rate" , RateRetrieval.class);
         return subObjects;
         }
-        public RateRetrieval getRate(){
-            return this.rate;
+        public String getExpirationTime(){
+            return this.expiration_time;
         };
-        public void setRate(RateRetrieval value){
-            this.rate = value;
-        }
-        public Integer getAmount(){
-            return this.amount;
-        };
-        public void setAmount(Integer value){
-            this.amount = value;
+        public void setExpirationTime(String value){
+            this.expiration_time = value;
         }
         public String getUuid(){
             return this.uuid;
         };
         public void setUuid(String value){
             this.uuid = value;
+        }
+        public RateRetrieval getRate(){
+            return this.rate;
+        };
+        public void setRate(RateRetrieval value){
+            this.rate = value;
+        }
+        public String getAddress(){
+            return this.address;
+        };
+        public void setAddress(String value){
+            this.address = value;
+        }
+        public String getUri(){
+            return this.uri;
+        };
+        public void setUri(String value){
+            this.uri = value;
+        }
+        public Integer getAmount(){
+            return this.amount;
+        };
+        public void setAmount(Integer value){
+            this.amount = value;
         }
         public Integer getExpiresIn(){
             return this.expires_in;
@@ -54,24 +72,6 @@ public class PaymentOrderCreationResponse extends SdkObject{
         };
         public void setRedirectUrl(String value){
             this.redirect_url = value;
-        }
-        public String getUri(){
-            return this.uri;
-        };
-        public void setUri(String value){
-            this.uri = value;
-        }
-        public String getExpirationTime(){
-            return this.expiration_time;
-        };
-        public void setExpirationTime(String value){
-            this.expiration_time = value;
-        }
-        public String getAddress(){
-            return this.address;
-        };
-        public void setAddress(String value){
-            this.address = value;
         }
         public PaymentOrderCreationResponse(){}
 }

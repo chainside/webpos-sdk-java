@@ -9,9 +9,9 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 
 public class PaymentOrderState extends SdkObject{
-    public String blockchain_status;
-    public PaidStatus paid;
     public PaidStatus in_confirmation;
+    public PaidStatus paid;
+    public String blockchain_status;
     public PaidStatus unpaid;
     public String status;
     public Schema getSchema(){
@@ -19,16 +19,16 @@ public class PaymentOrderState extends SdkObject{
         }
     public static HashMap<String, Class<? extends SdkBodyType>> getSubObjects() {
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap<>();
-        subObjects.put("paid" , PaidStatus.class);
         subObjects.put("in_confirmation" , PaidStatus.class);
+        subObjects.put("paid" , PaidStatus.class);
         subObjects.put("unpaid" , PaidStatus.class);
         return subObjects;
         }
-        public String getBlockchainStatus(){
-            return this.blockchain_status;
+        public PaidStatus getInConfirmation(){
+            return this.in_confirmation;
         };
-        public void setBlockchainStatus(String value){
-            this.blockchain_status = value;
+        public void setInConfirmation(PaidStatus value){
+            this.in_confirmation = value;
         }
         public PaidStatus getPaid(){
             return this.paid;
@@ -36,11 +36,11 @@ public class PaymentOrderState extends SdkObject{
         public void setPaid(PaidStatus value){
             this.paid = value;
         }
-        public PaidStatus getInConfirmation(){
-            return this.in_confirmation;
+        public String getBlockchainStatus(){
+            return this.blockchain_status;
         };
-        public void setInConfirmation(PaidStatus value){
-            this.in_confirmation = value;
+        public void setBlockchainStatus(String value){
+            this.blockchain_status = value;
         }
         public PaidStatus getUnpaid(){
             return this.unpaid;

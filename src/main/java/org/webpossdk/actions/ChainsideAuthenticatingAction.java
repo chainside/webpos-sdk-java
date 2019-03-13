@@ -6,6 +6,9 @@ import org.webpossdk.hooks.AuthenticationHook;
 
 import java.util.ArrayList;
 
+/**
+ * SuperClass for actions which provide authentication. It defines the AuthenticationHook as a pre-send hook
+ */
 public abstract class ChainsideAuthenticatingAction extends ChainsideAction {
     public ChainsideAuthenticatingAction(ApiContext ctx) {
         super(ctx);

@@ -9,6 +9,7 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+
 public class PaymentOrderCreationCollection extends SdkCollection<PaymentOrderCreation>{
         public Schema getSchema(){
                 return new Schema();

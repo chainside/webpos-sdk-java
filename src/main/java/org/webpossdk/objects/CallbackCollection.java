@@ -9,6 +9,7 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+
 public class CallbackCollection extends SdkCollection<Callback>{
         public Schema getSchema(){
                 return new Schema();

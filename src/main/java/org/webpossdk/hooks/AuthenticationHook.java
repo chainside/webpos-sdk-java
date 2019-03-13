@@ -7,6 +7,9 @@ import com.sdkboilerplate.lib.ApiContext;
 
 import java.util.Base64;
 
+/**
+ * Pre-send hook class which fetches credentials from the configuration and
+ */
 public class AuthenticationHook extends PreSendHook {
     public AuthenticationHook(ApiContext ctx, SdkRequest sdkRequest) {
         super(ctx, sdkRequest);

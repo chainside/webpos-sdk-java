@@ -9,6 +9,7 @@ import com.sdkboilerplate.validation.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+
 public class CurrencyRetrievalCollection extends SdkCollection<CurrencyRetrieval>{
         public Schema getSchema(){
                 return new Schema();
