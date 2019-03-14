@@ -8,7 +8,6 @@ import com.sdkboilerplate.lib.ApiContext;
 import com.sdkboilerplate.objects.SdkObject;
 import org.webpossdk.api.ChainsideHeaders;
 import org.webpossdk.lib.Hashers;
-import org.webpossdk.utils.Converter;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -17,7 +16,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 

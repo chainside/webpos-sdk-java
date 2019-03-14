@@ -1,3 +1,5 @@
+import json
+
 def classname(namespace):
     return namespace.title().replace('_', '')
 
@@ -62,6 +64,17 @@ def params_to_init(endpoint):
         params.append(request_body_class(endpoint) + " " + camel_case(endpoint.request.body_params.raw_name))
     return ','.join(params)
 
+def filter_descriptions(schema):
+    res = {}
+    for key in schema:
+        if key == 'description' and 'rules' in schema:
+            continue
+        if isinstance(schema[key], dict):
+            res[key] = filter_descriptions(schema[key])
+        else:
+            res[key] = schema[key]
+    return res
+
 FILTERS = {'classname': classname ,
            'request_body_class' : request_body_class,
            'response_body_class' : response_body_class,
@@ -71,5 +84,7 @@ FILTERS = {'classname': classname ,
            'camel_case' : camel_case,
            'request_return_type' : request_return_type,
            'error_classname' : error_classname,
-           'params_to_init' : params_to_init
+           'params_to_init' : params_to_init,
+           'filter_descriptions' : filter_descriptions
+
            }

@@ -7,7 +7,6 @@ import com.sdkboilerplate.exceptions.SdkHttpException;
 import com.sdkboilerplate.hooks.FailureHook;
 import com.sdkboilerplate.hooks.PreSendHook;
 import com.sdkboilerplate.hooks.SuccessHook;
-
 import com.sdkboilerplate.http.SdkResponse;
 import com.sdkboilerplate.lib.ApiContext;
 
@@ -31,7 +30,9 @@ public abstract class ChainsideAction extends Action {
     }
 
     @Override
-    public ArrayList<Class<? extends PreSendHook>> getPreSendHooks() { return new ArrayList<>(); }
+    public ArrayList<Class<? extends PreSendHook>> getPreSendHooks() {
+        return new ArrayList<>();
+    }
 
     @Override
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
@@ -39,12 +40,12 @@ public abstract class ChainsideAction extends Action {
     }
 
     @Override
-    public String getExceptionKey(SdkResponse sdkResponse) throws DeserializationException{
+    public String getExceptionKey(SdkResponse sdkResponse) throws DeserializationException {
         ObjectMapper mapper = new ObjectMapper();
         try {
             HashMap<String, Object> jsonBody = mapper.readValue(sdkResponse.getRawBody(), HashMap.class);
             return jsonBody.get("error_code").toString();
-        }catch (IOException e){
+        } catch (IOException e) {
             throw new DeserializationException(e.getMessage());
         }
     }

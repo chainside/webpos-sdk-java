@@ -2,6 +2,9 @@ package org.webpossdk.objects;
 
 import com.sdkboilerplate.objects.*;
 import com.sdkboilerplate.validation.*;
+import com.sdkboilerplate.exceptions.*;
+
+import org.webpossdk.objects.schemas.*;
 
 import java.util.HashMap;
 
@@ -9,8 +12,8 @@ public class {{object.raw_name | classname}} extends SdkObject{
     {% for attribute in object._schema  -%}
         public {{object._schema.get(attribute).get('type') | get_j_type}} {{attribute}};
     {% endfor -%}
-    public Schema getSchema(){
-            return new Schema();
+    public Schema getSchema() throws JsonSerializationException{
+            return new Schema({{object.raw_name | classname}}Schema.jsonSchema);
         }
     public static HashMap<String, Class<? extends SdkBodyType>> getSubObjects() {
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap<>();

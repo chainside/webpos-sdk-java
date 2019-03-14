@@ -2,6 +2,10 @@ package org.webpossdk.objects;
 
 import com.sdkboilerplate.objects.*;
 import com.sdkboilerplate.validation.*;
+import com.sdkboilerplate.exceptions.*;
+
+import org.webpossdk.objects.schemas.*;
+import org.webpossdk.objects.*;
 
 import java.util.HashMap;
 
@@ -17,8 +21,8 @@ public class {{callback.event_type.replace('.', '_') | classname}}Callback exten
     public {{otype}} get{{ attribute|classname }}(){ return this.{{attribute | camel_case}};}
     public void set{{ attribute|classname }}({{otype}} value){this.{{attribute|camel_case}} = value;}
     {% endfor -%}
-    public Schema getSchema(){
-        return new Schema();
+    public Schema getSchema() throws JsonSerializationException{
+        return new Schema({{callback.object_name | classname}}Schema.jsonSchema);
     }
     public static HashMap<String, Class<? extends SdkBodyType>>  getSubObjects(){
         HashMap<String, Class<? extends SdkBodyType>>  subObjects = new HashMap<>();
