@@ -28,8 +28,6 @@ public class PaymentOrderList extends SdkObject {
         return this.paymentorders;
     }
 
-    ;
-
     public void setPaymentorders(PaymentOrderRetrievalCollection value) {
         this.paymentorders = value;
     }

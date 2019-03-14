@@ -27,8 +27,6 @@ public class PaymentUpdateObject extends SdkObject {
         return this.callback;
     }
 
-    ;
-
     public void setCallback(String value) {
         this.callback = value;
     }

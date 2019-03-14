@@ -12,11 +12,11 @@ import org.webpossdk.objects.schemas.PaymentOrderCreatorSchema;
 import java.util.HashMap;
 
 public class PaymentOrderCreator extends SdkObject {
-    public Boolean active;
-    public String type;
-    public String uuid;
-    public DepositAccountLite deposit_account;
     public String name;
+    public String uuid;
+    public String type;
+    public DepositAccountLite deposit_account;
+    public Boolean active;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(PaymentOrderCreatorSchema.jsonSchema);
@@ -28,54 +28,44 @@ public class PaymentOrderCreator extends SdkObject {
         return subObjects;
     }
 
-    public Boolean getActive() {
-        return this.active;
+    public String getName() {
+        return this.name;
     }
 
-    ;
-
-    public void setActive(Boolean value) {
-        this.active = value;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    ;
-
-    public void setType(String value) {
-        this.type = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
     public String getUuid() {
         return this.uuid;
     }
 
-    ;
-
     public void setUuid(String value) {
         this.uuid = value;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String value) {
+        this.type = value;
     }
 
     public DepositAccountLite getDepositAccount() {
         return this.deposit_account;
     }
 
-    ;
-
     public void setDepositAccount(DepositAccountLite value) {
         this.deposit_account = value;
     }
 
-    public String getName() {
-        return this.name;
+    public Boolean getActive() {
+        return this.active;
     }
 
-    ;
-
-    public void setName(String value) {
-        this.name = value;
+    public void setActive(Boolean value) {
+        this.active = value;
     }
 
     public PaymentOrderCreator() {

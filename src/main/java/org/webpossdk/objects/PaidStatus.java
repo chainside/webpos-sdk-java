@@ -28,8 +28,6 @@ public class PaidStatus extends SdkObject {
         return this.fiat;
     }
 
-    ;
-
     public void setFiat(String value) {
         this.fiat = value;
     }
@@ -37,8 +35,6 @@ public class PaidStatus extends SdkObject {
     public Integer getCrypto() {
         return this.crypto;
     }
-
-    ;
 
     public void setCrypto(Integer value) {
         this.crypto = value;

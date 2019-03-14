@@ -28,8 +28,6 @@ public class CallbackList extends SdkObject {
         return this.callbacks;
     }
 
-    ;
-
     public void setCallbacks(CallbackCollection value) {
         this.callbacks = value;
     }

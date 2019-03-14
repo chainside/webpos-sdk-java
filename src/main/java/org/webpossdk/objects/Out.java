@@ -28,8 +28,6 @@ public class Out extends SdkObject {
         return this.amount;
     }
 
-    ;
-
     public void setAmount(Integer value) {
         this.amount = value;
     }
@@ -37,8 +35,6 @@ public class Out extends SdkObject {
     public Integer getN() {
         return this.n;
     }
-
-    ;
 
     public void setN(Integer value) {
         this.n = value;

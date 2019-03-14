@@ -12,9 +12,9 @@ import org.webpossdk.objects.schemas.DepositAccountLiteSchema;
 import java.util.HashMap;
 
 public class DepositAccountLite extends SdkObject {
-    public String type;
-    public String uuid;
     public String name;
+    public String uuid;
+    public String type;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(DepositAccountLiteSchema.jsonSchema);
@@ -25,34 +25,28 @@ public class DepositAccountLite extends SdkObject {
         return subObjects;
     }
 
-    public String getType() {
-        return this.type;
+    public String getName() {
+        return this.name;
     }
 
-    ;
-
-    public void setType(String value) {
-        this.type = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
     public String getUuid() {
         return this.uuid;
     }
 
-    ;
-
     public void setUuid(String value) {
         this.uuid = value;
     }
 
-    public String getName() {
-        return this.name;
+    public String getType() {
+        return this.type;
     }
 
-    ;
-
-    public void setName(String value) {
-        this.name = value;
+    public void setType(String value) {
+        this.type = value;
     }
 
     public DepositAccountLite() {

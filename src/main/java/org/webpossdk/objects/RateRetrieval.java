@@ -12,11 +12,11 @@ import org.webpossdk.objects.schemas.RateRetrievalSchema;
 import java.util.HashMap;
 
 public class RateRetrieval extends SdkObject {
-    public String value;
     public String to;
+    public String from;
     public String created_at;
     public String source;
-    public String from;
+    public String value;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(RateRetrievalSchema.jsonSchema);
@@ -27,31 +27,25 @@ public class RateRetrieval extends SdkObject {
         return subObjects;
     }
 
-    public String getValue() {
-        return this.value;
-    }
-
-    ;
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
     public String getTo() {
         return this.to;
     }
-
-    ;
 
     public void setTo(String value) {
         this.to = value;
     }
 
+    public String getFrom() {
+        return this.from;
+    }
+
+    public void setFrom(String value) {
+        this.from = value;
+    }
+
     public String getCreatedAt() {
         return this.created_at;
     }
-
-    ;
 
     public void setCreatedAt(String value) {
         this.created_at = value;
@@ -61,20 +55,16 @@ public class RateRetrieval extends SdkObject {
         return this.source;
     }
 
-    ;
-
     public void setSource(String value) {
         this.source = value;
     }
 
-    public String getFrom() {
-        return this.from;
+    public String getValue() {
+        return this.value;
     }
 
-    ;
-
-    public void setFrom(String value) {
-        this.from = value;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public RateRetrieval() {

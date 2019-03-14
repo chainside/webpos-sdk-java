@@ -27,8 +27,6 @@ public class Callback extends SdkObject {
         return this.name;
     }
 
-    ;
-
     public void setName(String value) {
         this.name = value;
     }

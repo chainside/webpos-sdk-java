@@ -27,8 +27,6 @@ public class PaymentOrderDeletionResponse extends SdkObject {
         return this.cancel_url;
     }
 
-    ;
-
     public void setCancelUrl(String value) {
         this.cancel_url = value;
     }

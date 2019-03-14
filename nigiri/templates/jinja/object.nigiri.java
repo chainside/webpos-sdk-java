@@ -29,7 +29,7 @@ public class {{object.raw_name | classname}} extends SdkObject{
         {% for attribute in object._schema  -%}
         public {{object._schema.get(attribute).get('type') | get_j_type}} get{{ attribute|classname }}(){
             return this.{{attribute}};
-        };
+        }
         public void set{{ attribute|classname }}({{object._schema.get(attribute).get('type') | get_j_type}} value){
             this.{{attribute}} = value;
         }

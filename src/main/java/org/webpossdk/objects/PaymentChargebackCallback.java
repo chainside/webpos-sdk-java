@@ -13,24 +13,14 @@ import java.util.HashMap;
 
 public class PaymentChargebackCallback extends SdkObject {
 
-    private String event;
+    private String objectType;
 
-    public String getEvent() {
-        return this.event;
+    public String getObjectType() {
+        return this.objectType;
     }
 
-    public void setEvent(String value) {
-        this.event = value;
-    }
-
-    private String createdAt;
-
-    public String getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(String value) {
-        this.createdAt = value;
+    public void setObjectType(String value) {
+        this.objectType = value;
     }
 
     private CallbackPaymentOrder object;
@@ -43,14 +33,24 @@ public class PaymentChargebackCallback extends SdkObject {
         this.object = value;
     }
 
-    private String objectType;
+    private String createdAt;
 
-    public String getObjectType() {
-        return this.objectType;
+    public String getCreatedAt() {
+        return this.createdAt;
     }
 
-    public void setObjectType(String value) {
-        this.objectType = value;
+    public void setCreatedAt(String value) {
+        this.createdAt = value;
+    }
+
+    private String event;
+
+    public String getEvent() {
+        return this.event;
+    }
+
+    public void setEvent(String value) {
+        this.event = value;
     }
 
     public Schema getSchema() throws JsonSerializationException {
