@@ -1,13 +1,13 @@
-package org.webpossdk.actions;
+package it.webpossdk.actions;
 
-import org.webpossdk.objects.*;
-import org.webpossdk.lib.*;
-import org.webpossdk.exceptions.*;
+import it.webpossdk.objects.*;
+import it.webpossdk.lib.*;
+import it.webpossdk.exceptions.*;
 
-import com.sdkboilerplate.exceptions.*;
-import com.sdkboilerplate.objects.*;
-import com.sdkboilerplate.lib.*;
-import com.sdkboilerplate.validation.*;
+import it.sdkboilerplate.exceptions.*;
+import it.sdkboilerplate.objects.*;
+import it.sdkboilerplate.lib.*;
+import it.sdkboilerplate.validation.*;
 
 import java.util.*;
 

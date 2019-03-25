@@ -1,5 +1,6 @@
 {
   "generated": [
+    "README.md",
     "src/main/java/org/webpossdk/actions/ChainsideActionFactory.java",
     "src/main/java/org/webpossdk/actions/ClientCredentialsLoginAction.java",
     "src/main/java/org/webpossdk/actions/CreatePaymentOrderAction.java",

@@ -1,26 +1,26 @@
 /*
 Nigiri auto-generated file
 */
-package org.webpossdk.objects;
+package it.webpossdk.objects;
 
-import com.sdkboilerplate.exceptions.JsonSerializationException;
-import com.sdkboilerplate.objects.SdkCollection;
-import com.sdkboilerplate.validation.Schema;
-import org.webpossdk.objects.schemas.CallbackPaymentOrderSchema;
+import it.sdkboilerplate.objects.*;
+import it.sdkboilerplate.validation.*;
+import it.sdkboilerplate.exceptions.*;
 
+import it.webpossdk.objects.schemas.*;
+
+import java.util.HashMap;
 import java.util.ArrayList;
 
 
-public class CallbackPaymentOrderCollection extends SdkCollection<CallbackPaymentOrder> {
-    public Schema getSchema() throws JsonSerializationException {
-        return new Schema(CallbackPaymentOrderSchema.jsonSchema);
-    }
-
-    public static Class<CallbackPaymentOrder> getElementsClass() {
-        return CallbackPaymentOrder.class;
-    }
-
-    public CallbackPaymentOrderCollection(ArrayList<CallbackPaymentOrder> elements) {
-        super(elements);
-    }
+public class CallbackPaymentOrderCollection extends SdkCollection<CallbackPaymentOrder>{
+        public Schema getSchema() throws JsonSerializationException {
+                return new Schema(CallbackPaymentOrderSchema.jsonSchema);
+        }
+        public static Class<CallbackPaymentOrder> getElementsClass(){
+                return CallbackPaymentOrder.class;
+        }
+        public CallbackPaymentOrderCollection(ArrayList<CallbackPaymentOrder> elements){
+                super(elements);
+        }
 }

@@ -4,17 +4,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.webpos-sdk-java</groupId>
+   <groupId>it.moveax</groupId>
     <artifactId>webpos-sdk-java</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <properties>
         <maven.compiler.source>1.10</maven.compiler.source>
         <maven.compiler.target>1.10</maven.compiler.target>
     </properties>
-
+    <repositories>
+        <repository>
+            <id>oss</id>
+            <name>oss</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
-            <groupId>org.moveax.sdkboilerplate</groupId>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>it.moveax.sdkboilerplate</groupId>
             <artifactId>sdk-boilerplate</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -30,11 +42,10 @@
             <version>1.2.1.Final</version>
             <type>pom</type>
         </dependency>
-        <!-- Tmp local dependencies -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.6.3</version>
+            <version>2.8.11</version>
         </dependency>
 
         <dependency>

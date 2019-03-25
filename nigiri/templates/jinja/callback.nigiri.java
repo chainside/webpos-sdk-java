@@ -1,11 +1,11 @@
-package org.webpossdk.objects;
+package it.webpossdk.objects;
 
-import com.sdkboilerplate.objects.*;
-import com.sdkboilerplate.validation.*;
-import com.sdkboilerplate.exceptions.*;
+import it.sdkboilerplate.objects.*;
+import it.sdkboilerplate.validation.*;
+import it.sdkboilerplate.exceptions.*;
 
-import org.webpossdk.objects.schemas.*;
-import org.webpossdk.objects.*;
+import it.webpossdk.objects.schemas.*;
+import it.webpossdk.objects.*;
 
 import java.util.HashMap;
 

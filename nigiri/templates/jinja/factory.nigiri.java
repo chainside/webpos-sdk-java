@@ -1,8 +1,8 @@
-package org.webpossdk.actions;
+package it.webpossdk.actions;
 
-import com.sdkboilerplate.actions.*;
+import it.sdkboilerplate.actions.*;
 
-import org.webpossdk.api.*;
+import it.webpossdk.api.*;
 import java.util.HashMap;
 
 public class ChainsideActionFactory extends ActionsFactory{

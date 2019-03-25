@@ -17,4 +17,5 @@ class SdkObjectsGenerator(Generator):
         self.generate('factory.nigiri.java', 'src/main/java/org/webpossdk/actions/ChainsideActionFactory', endpoints=parsed.endpoints)
         self.generate('client.nigiri.java', 'src/main/java/org/webpossdk/api/ChainsideClient', endpoints=parsed.endpoints)
         self.generate('callback.factory.nigiri.java', 'src/main/java/org/webpossdk/callbacks/ChainsideCallbackFactory', callbacks=parsed.callbacks)
+        self.generate('readme.nigiri.md', 'README', endpoints=parsed.endpoints, objects=parsed.objects, callbacks=parsed.callbacks)
 Generator = SdkObjectsGenerator

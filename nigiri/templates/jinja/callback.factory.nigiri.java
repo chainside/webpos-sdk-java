@@ -1,9 +1,9 @@
-package org.webpossdk.callbacks;
+package it.webpossdk.callbacks;
 
-import org.webpossdk.actions.*;
-import org.webpossdk.objects.*;
+import it.webpossdk.actions.*;
+import it.webpossdk.objects.*;
 
-import com.sdkboilerplate.objects.*;
+import it.sdkboilerplate.objects.*;
 
 import java.util.HashMap;
 

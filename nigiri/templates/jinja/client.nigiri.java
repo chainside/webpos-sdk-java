@@ -1,10 +1,10 @@
-package org.webpossdk.api;
+package it.webpossdk.api;
 
-import com.sdkboilerplate.actions.*;
-import com.sdkboilerplate.exceptions.*;
+import it.sdkboilerplate.actions.*;
+import it.sdkboilerplate.exceptions.*;
 
-import org.webpossdk.actions.*;
-import org.webpossdk.objects.*;
+import it.webpossdk.actions.*;
+import it.webpossdk.objects.*;
 
 import java.util.HashMap;
 
