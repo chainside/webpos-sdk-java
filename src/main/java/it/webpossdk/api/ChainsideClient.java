@@ -7,8 +7,8 @@ import it.sdkboilerplate.exceptions.ConfigurationException;
 import it.sdkboilerplate.exceptions.SdkException;
 import it.webpossdk.actions.*;
 import it.webpossdk.objects.*;
-import org.webpossdk.actions.*;
-import org.webpossdk.objects.*;
+import it.webpossdk.actions.*;
+import it.webpossdk.objects.*;
 
 import java.util.HashMap;
 

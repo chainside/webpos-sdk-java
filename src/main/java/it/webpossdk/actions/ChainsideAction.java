@@ -40,13 +40,13 @@ public abstract class ChainsideAction extends Action {
     }
 
     @Override
-    public String getExceptionKey(SdkResponse sdkResponse) throws DeserializationException {
+    public String getExceptionKey(SdkResponse sdkResponse) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             HashMap<String, Object> jsonBody = mapper.readValue(sdkResponse.getRawBody(), HashMap.class);
             return jsonBody.get("error_code").toString();
         } catch (IOException e) {
-            throw new DeserializationException(e.getMessage());
+            return null;
         }
     }
 }

@@ -5,7 +5,7 @@ package it.webpossdk.callbacks;
 
 import it.sdkboilerplate.objects.SdkObject;
 import it.webpossdk.objects.*;
-import org.webpossdk.objects.*;
+
 
 import java.util.HashMap;
 
