@@ -1,17 +1,14 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.sdkboilerplate.exceptions.CallbackVerificationException;
-import it.sdkboilerplate.exceptions.ConfigurationException;
-import it.sdkboilerplate.http.Headers;
-import it.webpossdk.objects.CallbackPaymentOrder;
-import it.webpossdk.objects.PaymentCompletedCallback;
-import it.webpossdk.objects.TransactionCollection;
+import net.webpossdk.api.ChainsideClient;
+import net.webpossdk.objects.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.powermock.reflect.Whitebox;
-import it.webpossdk.api.ChainsideApiContext;
-import it.webpossdk.api.ChainsideHeaders;
-import it.webpossdk.callbacks.ChainsideCallbackHandler;
-import it.webpossdk.lib.Hashers;
+import net.webpossdk.api.ChainsideApiContext;
+import net.webpossdk.api.ChainsideHeaders;
+import net.webpossdk.callbacks.ChainsideCallbackHandler;
+import net.webpossdk.lib.Hashers;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
