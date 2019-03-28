@@ -14,7 +14,6 @@ developed with :heart: by <a href="https://www.chainside.net">chainside</a>
 # Introduction
 
 This project is the **official** SDK library for the integration with the [Chainside Pay]() Platform.
-It is an extension of the [Sdk-boilerplate]() library.
 
 # Installation
 
