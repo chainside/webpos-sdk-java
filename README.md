@@ -15,7 +15,7 @@ developed with :heart: by <a href="https://www.chainside.net">chainside</a>
 
 This project is the **official** SDK library for the integration with the [Chainside Pay]() Platform.
 It is an extension of the [Sdk-boilerplate]() library.
- 
+
 # Installation
 
 Follow these steps to install the SDK library into your system:
@@ -23,8 +23,8 @@ Follow these steps to install the SDK library into your system:
 Maven plugin
 
 ```bash
-mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get 
-    -Dartifact=net.chainside.webpossdk:webpos-sdk-java:1.0-SNAPSHOT 
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get
+    -Dartifact=net.chainside.webpossdk:webpos-sdk-java:1.0
     -DrepoUrl=https://oss.sonatype.org/content/repositories/snapshots/
 ```
 
@@ -34,7 +34,7 @@ pom.xml
 <dependency>
             <groupId>net.chainside.webpos</groupId>
             <artifactId>webpos-sdk-java</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0</version>
 </dependency>
 ```
 You might need to add sonatype to maven repositories
@@ -71,7 +71,7 @@ used by the library:
 
 The Library exposes a _client_ object which is instantiated with the system configuration and
 provides an high-level interface to send requests. Client's instances take care of compiling and
-sending http request and parse responses into [SdkObject](#Objects) instances. 
+sending http request and parse responses into [SdkObject](#Objects) instances.
 
 ## Objects
 
@@ -81,7 +81,7 @@ class which is either the input of a _client_ instance method (for creation) or 
 
 ## Callbacks
 
-Callbacks are requests sent by the server to your application in order to notify about some events. 
+Callbacks are requests sent by the server to your application in order to notify about some events.
 Every callback is sent **only to HTTPS** webhooks and will be securely signed by the server in order to be verified.
 
 # Usage
@@ -111,7 +111,7 @@ paymentOrder.setRequiredConfirmations(3);
 PaymentOrderCreationResponse resp = client.createPaymentOrder(paymentOrder);
 
 String btcAddress = resp.address // will output the payment order address
-                        
+
 ```
 
 
@@ -121,14 +121,14 @@ methods to send requests:
 
 | Method |
 |--------|
-| `clientCredentialsLogin`(clientcredentials:ClientCredentials) : [ClientCredentialsLoginResponse](#ClientCredentialsLoginResponse)| 
-| `getCallbacks`(paymentOrderUuid:uuid) : [CallbackList](#CallbackList)| 
-| `paymentReset`(paymentOrderUuid:uuid) : [PaymentOrderRetrieval](#PaymentOrderRetrieval)| 
-| `paymentUpdate`(paymentOrderUuid:uuid,paymentupdateobject:PaymentUpdateObject) : [None](#None)| 
-| `deletePaymentOrder`(paymentOrderUuid:uuid) : [PaymentOrderDeletionResponse](#PaymentOrderDeletionResponse)| 
-| `getPaymentOrder`(paymentOrderUuid:uuid) : [PaymentOrderRetrieval](#PaymentOrderRetrieval)| 
-| `getWebPosPayments`(posUuid:uuid,status:string) : [PaymentOrderList](#PaymentOrderList)| 
-| `createPaymentOrder`(paymentordercreation:PaymentOrderCreation) : [PaymentOrderCreationResponse](#PaymentOrderCreationResponse)| 
+| `clientCredentialsLogin`(clientcredentials:ClientCredentials) : [ClientCredentialsLoginResponse](#ClientCredentialsLoginResponse)|
+| `getCallbacks`(paymentOrderUuid:uuid) : [CallbackList](#CallbackList)|
+| `paymentReset`(paymentOrderUuid:uuid) : [PaymentOrderRetrieval](#PaymentOrderRetrieval)|
+| `paymentUpdate`(paymentOrderUuid:uuid,paymentupdateobject:PaymentUpdateObject) : [None](#None)|
+| `deletePaymentOrder`(paymentOrderUuid:uuid) : [PaymentOrderDeletionResponse](#PaymentOrderDeletionResponse)|
+| `getPaymentOrder`(paymentOrderUuid:uuid) : [PaymentOrderRetrieval](#PaymentOrderRetrieval)|
+| `getWebPosPayments`(posUuid:uuid,status:string) : [PaymentOrderList](#PaymentOrderList)|
+| `createPaymentOrder`(paymentordercreation:PaymentOrderCreation) : [PaymentOrderCreationResponse](#PaymentOrderCreationResponse)|
 
 
 
@@ -443,8 +443,8 @@ ChainsideApiContext ctx = new ChainsideApiContext(config);
 ChainsideCallbackHandler handler = new ChainsideCallbackHandler(ctx);
 
 /* Retrieve http request and raw body in as an array of bytes
-HashMap<String, String> headers = request.getHeaders(); 
-byte[] rawBody = request.getRawBody(); 
+HashMap<String, String> headers = request.getHeaders();
+byte[] rawBody = request.getRawBody();
 */
 
 SdkObject parsedObject = handler.parse(headers, rawBody);
@@ -481,4 +481,3 @@ discouraged. Consider posting an issue if you need to signal any problem with th
 # Security Issues
 
 In case of a discovery of an actual or potential security issue please contact us at [info@chainside.net](mailto:info@chaniside.net)
-
