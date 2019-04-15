@@ -23,7 +23,7 @@ Maven plugin
 
 ```bash
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get
-    -Dartifact=net.chainside.webpossdk:webpos-sdk-java:1.0
+    -Dartifact=net.chainside.webpossdk:webpos-sdk-java:1.0.0
     -DrepoUrl=https://oss.sonatype.org/content/repositories/snapshots/
 ```
 
@@ -31,9 +31,9 @@ pom.xml
 
 ```xml
 <dependency>
-            <groupId>net.chainside.webpos</groupId>
+            <groupId>net.chainside.webpossdk</groupId>
             <artifactId>webpos-sdk-java</artifactId>
-            <version>1.0</version>
+            <version>1.0.0</version>
 </dependency>
 ```
 You might need to add sonatype to maven repositories

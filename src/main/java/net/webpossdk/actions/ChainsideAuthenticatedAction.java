@@ -15,7 +15,7 @@ import net.webpossdk.objects.ClientCredentialsLoginResponse;
 import java.util.ArrayList;
 
 /**
- * Superclass for actions which required authorization. It declares the AuthorizationHook as a pre-send hook.
+ * Superclass for actions which require authorization. It declares the AuthorizationHook as a pre-send hook.
  */
 public abstract class ChainsideAuthenticatedAction extends ChainsideAction {
     private Integer runs = 0;
@@ -49,8 +49,10 @@ public abstract class ChainsideAuthenticatedAction extends ChainsideAction {
     /**
      * Wrapping method for the authentication which performs the ClientCredentialsLogin action and caches the accessToken
      *
-     * @throws SdkHttpException If the server responds with a > 400 status code
-     * @throws SdkException     If any error occurs during the serialization / deserialization of objects
+     * @param ctx Action api context
+     * @throws SdkHttpException             If the server responds with a status code != 200
+     * @throws SdkException                 If any error occurs during the serialization / deserialization of objects
+     * @throws ReflectiveOperationException If any of the defined object is malformed
      */
     public static void login(ApiContext ctx) throws SdkHttpException, SdkException, ReflectiveOperationException {
 

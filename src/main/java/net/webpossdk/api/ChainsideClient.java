@@ -87,7 +87,7 @@ public class ChainsideClient {
         return (PaymentOrderCreationResponse) action.run();
     }
 
-    public void login() throws Exception {
+    public void login() throws ReflectiveOperationException, SdkException {
         ChainsideAuthenticatedAction.login(this.ctx);
     }
 }
