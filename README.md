@@ -18,9 +18,9 @@ This project is the **official** SDK library for the integration with the [Chain
 # Installation
 
 Follow these steps to install the SDK library into your system. You can install it either using
-the maven-dependency-plugin, configuring the pom.xml or using gradle
+the maven-dependency-plugin, configuring the pom.xml or configuring the gradle.build (for gradle users)
 
-Maven plugin
+With Maven plugin:
 
 ```bash
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get 
@@ -28,7 +28,7 @@ mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get
 -DrepoUrl=http://central.maven.org/maven2/
 ```
 
-pom.xml
+In pom.xml:
 
 ```xml
 <dependency>
@@ -38,7 +38,7 @@ pom.xml
 </dependency>
 ```
 
-With gradle:
+In gradle.build:
 ```bash
 compile 'net.chainside.webpossdk:webpos-sdk-java:1.0.0'
 ```
