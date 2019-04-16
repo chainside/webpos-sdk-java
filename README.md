@@ -18,7 +18,7 @@ This project is the **official** SDK library for the integration with the [Chain
 # Installation
 
 Follow these steps to install the SDK library into your system. You can install it either using
-the maven-dependency-plugin configuring the pom.xml or using gradle
+the maven-dependency-plugin, configuring the pom.xml or using gradle
 
 Maven plugin
 
