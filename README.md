@@ -17,14 +17,15 @@ This project is the **official** SDK library for the integration with the [Chain
 
 # Installation
 
-Follow these steps to install the SDK library into your system:
+Follow these steps to install the SDK library into your system. You can install it either using
+the maven-dependency-plugin configuring the pom.xml or using gradle
 
 Maven plugin
 
 ```bash
-mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get
-    -Dartifact=net.chainside.webpossdk:webpos-sdk-java:1.0.0
-    -DrepoUrl=https://oss.sonatype.org/content/repositories/snapshots/
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get 
+-Dartifact=net.chainside.webpossdk:webpos-sdk-java:1.0.0 
+-DrepoUrl=http://central.maven.org/maven2/
 ```
 
 pom.xml
@@ -36,17 +37,14 @@ pom.xml
             <version>1.0.0</version>
 </dependency>
 ```
-You might need to add sonatype to maven repositories
 
-```xml
-<repositories>
-        <repository>
-            <id>oss</id>
-            <name>oss</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
-</repositories>
+With gradle:
+```bash
+compile 'net.chainside.webpossdk:webpos-sdk-java:1.0.0'
 ```
+
+
+
 
 # Structure
 
