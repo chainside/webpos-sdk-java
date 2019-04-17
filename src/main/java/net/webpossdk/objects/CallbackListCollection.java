@@ -13,16 +13,14 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 
-public class CallbackListCollection extends SdkCollection<CallbackList> {
-    public Schema getSchema() throws JsonSerializationException {
-        return new Schema(CallbackListSchema.jsonSchema);
-    }
-
-    public static Class<CallbackList> getElementsClass() {
-        return CallbackList.class;
-    }
-
-    public CallbackListCollection(ArrayList<CallbackList> elements) {
-        super(elements);
-    }
+public class CallbackListCollection extends SdkCollection<CallbackList>{
+        public Schema getSchema() throws JsonSerializationException {
+                return new Schema(CallbackListSchema.jsonSchema);
+        }
+        public static Class<CallbackList> getElementsClass(){
+                return CallbackList.class;
+        }
+        public CallbackListCollection(ArrayList<CallbackList> elements){
+                super(elements);
+        }
 }

@@ -20,22 +20,22 @@ public abstract class ChainsideAction extends Action {
 
     @Override
     public ArrayList<Class<? extends FailureHook>> getFailureHooks() {
-        return new ArrayList<>();
+        return new ArrayList();
     }
 
     @Override
     public ArrayList<Class<? extends SuccessHook>> getSuccessHooks() {
-        return new ArrayList<>();
+        return new ArrayList();
     }
 
     @Override
     public ArrayList<Class<? extends PreSendHook>> getPreSendHooks() {
-        return new ArrayList<>();
+        return new ArrayList();
     }
 
     @Override
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
-        return new HashMap<>();
+        return new HashMap();
     }
 
     @Override

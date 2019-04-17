@@ -13,16 +13,14 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 
-public class PaymentOrderRetrievalCollection extends SdkCollection<PaymentOrderRetrieval> {
-    public Schema getSchema() throws JsonSerializationException {
-        return new Schema(PaymentOrderRetrievalSchema.jsonSchema);
-    }
-
-    public static Class<PaymentOrderRetrieval> getElementsClass() {
-        return PaymentOrderRetrieval.class;
-    }
-
-    public PaymentOrderRetrievalCollection(ArrayList<PaymentOrderRetrieval> elements) {
-        super(elements);
-    }
+public class PaymentOrderRetrievalCollection extends SdkCollection<PaymentOrderRetrieval>{
+        public Schema getSchema() throws JsonSerializationException {
+                return new Schema(PaymentOrderRetrievalSchema.jsonSchema);
+        }
+        public static Class<PaymentOrderRetrieval> getElementsClass(){
+                return PaymentOrderRetrieval.class;
+        }
+        public PaymentOrderRetrievalCollection(ArrayList<PaymentOrderRetrieval> elements){
+                super(elements);
+        }
 }

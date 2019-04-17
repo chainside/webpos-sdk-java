@@ -1,18 +1,19 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.sdkboilerplate.exceptions.CallbackVerificationException;
-import net.webpossdk.api.ChainsideClient;
-import net.webpossdk.objects.*;
-import org.junit.Assert;
-import org.junit.Test;
-import org.powermock.reflect.Whitebox;
 import net.webpossdk.api.ChainsideApiContext;
 import net.webpossdk.api.ChainsideHeaders;
 import net.webpossdk.callbacks.ChainsideCallbackHandler;
 import net.webpossdk.lib.Hashers;
+import net.webpossdk.objects.CallbackPaymentOrder;
+import net.webpossdk.objects.PaymentCompletedCallback;
+import net.webpossdk.objects.TransactionCollection;
+import org.apache.commons.codec.binary.Base64;
+import org.junit.Assert;
+import org.junit.Test;
+import org.powermock.reflect.Whitebox;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.HashMap;
 
 
@@ -27,7 +28,7 @@ public class TestCallbackHandler {
     private ObjectMapper mapper;
 
     public TestCallbackHandler() throws Exception {
-        HashMap<String, Object> config = new HashMap<>();
+        HashMap<String, Object> config = new HashMap();
         config.put("mode", "live");
         config.put("clientId", "testClientId");
         config.put("secret", "testSecret");
@@ -36,7 +37,7 @@ public class TestCallbackHandler {
         this.hasher = MessageDigest.getInstance(Hashers.SHA_256);
         this.testBody = "testRawBody";
         this.vkey = this.hasher.digest("testSecret".getBytes());
-        this.headers = new HashMap<>();
+        this.headers = new HashMap();
         this.mapper = new ObjectMapper();
     }
 
@@ -46,7 +47,7 @@ public class TestCallbackHandler {
     @Test
     public void testVerify() throws Exception {
         byte[] hmac = Whitebox.invokeMethod(this.handler, "getHMAC", this.testBody.getBytes(), this.vkey);
-        String encodedHmac = Base64.getEncoder().encodeToString(hmac);
+        String encodedHmac = Base64.encodeBase64String(hmac);
         this.headers.put(ChainsideHeaders.SIGNATURE, encodedHmac);
         handler.verify(this.headers, this.testBody.getBytes());
 
@@ -57,7 +58,7 @@ public class TestCallbackHandler {
      */
     @Test(expected = CallbackVerificationException.class)
     public void testVerifyFailure() throws Exception {
-        HashMap<String, String> headers = new HashMap<>();
+        HashMap<String, String> headers = new HashMap();
         handler.verify(headers, this.testBody.getBytes());
     }
 
@@ -68,7 +69,7 @@ public class TestCallbackHandler {
     public void testSignatureMismatch() throws Exception {
         String failBody = "testFailBody";
         byte[] hmac = Whitebox.invokeMethod(this.handler, "getHMAC", this.testBody.getBytes(), vkey);
-        String encodedHmac = Base64.getEncoder().encodeToString(hmac);
+        String encodedHmac = Base64.encodeBase64String(hmac);
         this.headers.put(ChainsideHeaders.SIGNATURE, encodedHmac);
         handler.verify(this.headers, failBody.getBytes());
     }
@@ -79,7 +80,7 @@ public class TestCallbackHandler {
     @Test
     public void testCallbackParsing() throws Exception {
         CallbackPaymentOrder paymentOrder = new CallbackPaymentOrder();
-        TransactionCollection transactions = new TransactionCollection(new ArrayList<>());
+        TransactionCollection transactions = new TransactionCollection(new ArrayList());
 
         paymentOrder.setAddress("testAddress");
         paymentOrder.setAmount("10.00");
@@ -87,7 +88,7 @@ public class TestCallbackHandler {
         paymentOrder.setTransactions(transactions);
 
         HashMap<String, Object> serialized = paymentOrder.toHashMap();
-        HashMap<String, Object> callbackBody = new HashMap<>();
+        HashMap<String, Object> callbackBody = new HashMap();
         callbackBody.put("event", "payment.completed");
         callbackBody.put("object", serialized);
         callbackBody.put("created_at", "2017-05-06 18:51");
@@ -95,7 +96,7 @@ public class TestCallbackHandler {
 
         String jsonSerialization = this.mapper.writeValueAsString(callbackBody);
         byte[] hmac = Whitebox.invokeMethod(this.handler, "getHMAC", jsonSerialization.getBytes(), this.vkey);
-        this.headers.put(ChainsideHeaders.SIGNATURE, Base64.getEncoder().encodeToString(hmac));
+        this.headers.put(ChainsideHeaders.SIGNATURE, Base64.encodeBase64String(hmac));
         PaymentCompletedCallback cb = (PaymentCompletedCallback) this.handler.parse(this.headers, jsonSerialization.getBytes());
         CallbackPaymentOrder parsed = cb.getObject();
         Assert.assertEquals(parsed.address, "testAddress");
@@ -103,7 +104,6 @@ public class TestCallbackHandler {
         Assert.assertEquals(parsed.btc_amount, (Integer) 3);
 
     }
-
 
 
 }

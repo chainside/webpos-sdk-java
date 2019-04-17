@@ -13,16 +13,14 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 
-public class RateRetrievalCollection extends SdkCollection<RateRetrieval> {
-    public Schema getSchema() throws JsonSerializationException {
-        return new Schema(RateRetrievalSchema.jsonSchema);
-    }
-
-    public static Class<RateRetrieval> getElementsClass() {
-        return RateRetrieval.class;
-    }
-
-    public RateRetrievalCollection(ArrayList<RateRetrieval> elements) {
-        super(elements);
-    }
+public class RateRetrievalCollection extends SdkCollection<RateRetrieval>{
+        public Schema getSchema() throws JsonSerializationException {
+                return new Schema(RateRetrievalSchema.jsonSchema);
+        }
+        public static Class<RateRetrieval> getElementsClass(){
+                return RateRetrieval.class;
+        }
+        public RateRetrievalCollection(ArrayList<RateRetrieval> elements){
+                super(elements);
+        }
 }

@@ -8,15 +8,14 @@ import it.sdkboilerplate.lib.ApiContext;
 import it.sdkboilerplate.objects.SdkObject;
 import net.webpossdk.api.ChainsideHeaders;
 import net.webpossdk.lib.Hashers;
+import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.HashMap;
 
 public class ChainsideCallbackHandler extends CallbackHandler {
@@ -41,13 +40,15 @@ public class ChainsideCallbackHandler extends CallbackHandler {
         }
         try {
             MessageDigest digest = MessageDigest.getInstance(Hashers.SHA_256);
-            byte[] key = digest.digest(this.ctx.getConfig().get("secret").toString().getBytes(StandardCharsets.UTF_8));
+            byte[] key = digest.digest(this.ctx.getConfig().get("secret").toString().getBytes());
             byte[] bodyHmac = this.getHMAC(rawBody, key);
-            String computedSignature = Base64.getEncoder().encodeToString(bodyHmac);
+            String computedSignature = Base64.encodeBase64String(bodyHmac);
             if (!computedSignature.equals(signature)) {
                 throw new CallbackVerificationException();
             }
-        } catch (NoSuchAlgorithmException | InvalidKeyException e) {
+        } catch (NoSuchAlgorithmException e) {
+            throw new CallbackVerificationException();
+        } catch (InvalidKeyException e) {
             throw new CallbackVerificationException();
         }
 

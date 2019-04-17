@@ -28,14 +28,14 @@ public abstract class ChainsideAuthenticatedAction extends ChainsideAction {
 
     @Override
     public ArrayList<Class<? extends PreSendHook>> getPreSendHooks() {
-        ArrayList<Class<? extends PreSendHook>> preSendHooks = new ArrayList<>();
+        ArrayList<Class<? extends PreSendHook>> preSendHooks = new ArrayList();
         preSendHooks.add(AuthorizationHook.class);
         preSendHooks.addAll(super.getPreSendHooks());
         return preSendHooks;
     }
 
     @Override
-    public SdkBodyType run() throws SdkException, SdkHttpException, ReflectiveOperationException {
+    public SdkBodyType run() throws SdkException {
         try {
             return super.run();
         } catch (AccessTokenExpiredException e) {
@@ -52,9 +52,8 @@ public abstract class ChainsideAuthenticatedAction extends ChainsideAction {
      * @param ctx Action api context
      * @throws SdkHttpException             If the server responds with a status code != 200
      * @throws SdkException                 If any error occurs during the serialization / deserialization of objects
-     * @throws ReflectiveOperationException If any of the defined object is malformed
      */
-    public static void login(ApiContext ctx) throws SdkHttpException, SdkException, ReflectiveOperationException {
+    public static void login(ApiContext ctx) throws SdkHttpException, SdkException {
 
         net.webpossdk.objects.ClientCredentials credentials = new ClientCredentials();
         credentials.setGrantType("client_credentials");
