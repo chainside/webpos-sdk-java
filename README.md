@@ -43,7 +43,14 @@ In gradle.build:
 compile 'net.chainside.webpossdk:webpos-sdk-java:1.0.0'
 ```
 
+## Java 7 compatibility
 
+A version java 7 (jdk1.7) compatible can be installed. The source code is available in the java7_compatibility
+branch and it can be installed from maven central using webpos-sdk-java7 as artifactId in place of webpos-sdk-java.
+
+Depending on the jdk1.7 version used, you might need to enable TLSv1.2 protocol to download dependencies.
+This can be achieved by passing -Dhttp.protocols=TLSv1.2 to the chosen package manager command
+ 
 
 
 # Structure
