@@ -13,11 +13,11 @@
     <version>1.0.0</version>
 
     <properties>
-        <java.version>1.6</java.version>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.testSource>1.6</maven.compiler.testSource>
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <maven.compiler.testTarget>1.6</maven.compiler.testTarget>
+        <java.version>1.7</java.version>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.testSource>1.7</maven.compiler.testSource>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.testTarget>1.7</maven.compiler.testTarget>
     </properties>
     <distributionManagement>
         <snapshotRepository>
@@ -32,7 +32,7 @@
     <dependencies>
         <dependency>
             <groupId>it.moveax.sdkboilerplate</groupId>
-            <artifactId>sdk-boilerplate-java6</artifactId>
+            <artifactId>sdk-boilerplate-java7</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
@@ -147,7 +147,7 @@
                         <configuration>
                             <rules>
                                 <enforceBytecodeVersion>
-                                    <maxJdkVersion>1.6</maxJdkVersion>
+                                    <maxJdkVersion>1.7</maxJdkVersion>
                                     <excludes>
                                         <exclude>org.mindrot:jbcrypt</exclude>
                                     </excludes>
