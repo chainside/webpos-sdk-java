@@ -13,13 +13,13 @@ import java.util.HashMap;
 
 public class PaymentOrderCreationResponse extends SdkObject{
     public Integer expires_in;
+    public String address;
+    public RateRetrieval rate;
+    public Integer amount;
     public String uuid;
     public String expiration_time;
-    public RateRetrieval rate;
-    public String redirect_url;
     public String uri;
-    public Integer amount;
-    public String address;
+    public String redirect_url;
     public Schema getSchema() throws JsonSerializationException{
             return new Schema(PaymentOrderCreationResponseSchema.jsonSchema);
         }
@@ -34,6 +34,24 @@ public class PaymentOrderCreationResponse extends SdkObject{
         public void setExpiresIn(Integer value){
             this.expires_in = value;
         }
+        public String getAddress(){
+            return this.address;
+        }
+        public void setAddress(String value){
+            this.address = value;
+        }
+        public RateRetrieval getRate(){
+            return this.rate;
+        }
+        public void setRate(RateRetrieval value){
+            this.rate = value;
+        }
+        public Integer getAmount(){
+            return this.amount;
+        }
+        public void setAmount(Integer value){
+            this.amount = value;
+        }
         public String getUuid(){
             return this.uuid;
         }
@@ -46,35 +64,17 @@ public class PaymentOrderCreationResponse extends SdkObject{
         public void setExpirationTime(String value){
             this.expiration_time = value;
         }
-        public RateRetrieval getRate(){
-            return this.rate;
-        }
-        public void setRate(RateRetrieval value){
-            this.rate = value;
-        }
-        public String getRedirectUrl(){
-            return this.redirect_url;
-        }
-        public void setRedirectUrl(String value){
-            this.redirect_url = value;
-        }
         public String getUri(){
             return this.uri;
         }
         public void setUri(String value){
             this.uri = value;
         }
-        public Integer getAmount(){
-            return this.amount;
+        public String getRedirectUrl(){
+            return this.redirect_url;
         }
-        public void setAmount(Integer value){
-            this.amount = value;
-        }
-        public String getAddress(){
-            return this.address;
-        }
-        public void setAddress(String value){
-            this.address = value;
+        public void setRedirectUrl(String value){
+            this.redirect_url = value;
         }
         public PaymentOrderCreationResponse(){}
 }

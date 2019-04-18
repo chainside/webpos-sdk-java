@@ -50,8 +50,8 @@ public class DeletePaymentOrderAction extends ChainsideAuthenticatedAction{
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap();
         headers.put("Content-Type", "application/json");
-        headers.put("X-Api-Version", "v1");
         headers.put("Accept", "application/json");
+        headers.put("X-Api-Version", "v1");
         return headers;
     }
     public void setPaymentOrderUuid(String value){

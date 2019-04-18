@@ -16,10 +16,10 @@ public class ChainsideActionFactory extends ActionsFactory{
         actions.put("getPaymentOrder" , GetPaymentOrderAction.class);
         actions.put("getWebPosPayments" , GetWebPosPaymentsAction.class);
         actions.put("createPaymentOrder" , CreatePaymentOrderAction.class);
+        actions.put("clientCredentialsLogin" , ClientCredentialsLoginAction.class);
         actions.put("getCallbacks" , GetCallbacksAction.class);
         actions.put("paymentReset" , PaymentResetAction.class);
         actions.put("paymentUpdate" , PaymentUpdateAction.class);
-        actions.put("clientCredentialsLogin" , ClientCredentialsLoginAction.class);
         return actions;
     }
     public ChainsideActionFactory(ChainsideApiContext ctx){

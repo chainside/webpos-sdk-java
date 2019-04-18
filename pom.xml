@@ -9,7 +9,7 @@
         <version>9</version>
     </parent>
     <groupId>net.chainside.webpossdk</groupId>
-    <artifactId>webpos-sdk-java</artifactId>
+    <artifactId>webpos-sdk-java7</artifactId>
     <version>1.0.0</version>
 
     <properties>
