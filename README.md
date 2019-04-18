@@ -49,7 +49,7 @@ A version java 7 (jdk1.7) compatible can be installed. The source code is availa
 branch and it can be installed from maven central using webpos-sdk-java7 as artifactId in place of webpos-sdk-java.
 
 Depending on the jdk1.7 version used, you might need to enable TLSv1.2 protocol to download dependencies.
-This can be achieved by passing -Dhttp.protocols=TLSv1.2 to the chosen package manager command
+This can be achieved by passing -Dhttps.protocols=TLSv1.2 to the chosen package manager command
  
 
 
