@@ -24,7 +24,7 @@ With Maven plugin:
 
 ```bash
 mvn org.apache.maven.plugins:maven-dependency-plugin:2.1:get 
--Dartifact=net.chainside.webpossdk:webpos-sdk-java:1.0.0 
+-Dartifact=net.chainside.webpossdk:webpos-sdk-java:1.1.0 
 -DrepoUrl=http://central.maven.org/maven2/
 ```
 
@@ -34,13 +34,13 @@ In pom.xml:
 <dependency>
             <groupId>net.chainside.webpossdk</groupId>
             <artifactId>webpos-sdk-java</artifactId>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
 </dependency>
 ```
 
 In gradle.build:
 ```bash
-compile 'net.chainside.webpossdk:webpos-sdk-java:1.0.0'
+compile 'net.chainside.webpossdk:webpos-sdk-java:1.1.0'
 ```
 
 ## Java 7 compatibility
@@ -66,6 +66,50 @@ used by the library:
 | **mode** | _string_ | Yes | `live` | The SDK mode, can be `sandbox` or `live` |
 | **clientId** | _string_ | Yes | `null` | Your WebPos client id |
 | **secret** | _string_ | Yes | `null` | Your WebPos secret |
+| **proxy**  | HashMap | No | `null` | Proxy Configuration
+
+
+#### Proxy settings 
+If a proxy configuration is given, the requests are sent using the configured proxy. A proxy configuration
+must be specified as:
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| **hostname** | _string_ | Yes | `null` | Hostname of the proxy server |
+| **port** | _int_ | Yes | `null` | Port of the proxy server |
+| **protocol** | _string_ | Yes | `null` | Proxy server protocol (http , https)|
+| **credentials** | HashMap | No | `null` | Credentials to authenticate on the proxy server
+
+If the proxy server requires authentication, credentials must be specified in the proxy configuration
+parameters as:
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| **user** | _string_ | Yes | `live` | Username to perform authentication  |
+| **password** | _string_ | Yes | `null` | Proxy server password |
+
+Example:
+
+```java
+import net.webpossdk.api.ChainsideClient;
+import net.webpossdk.object.CallbackList;
+
+HashMap<String, Object> config = new HashMap<>();
+config.put("mode", "live");
+config.put("clientId", "{webpos_client_id}");
+config.put("secret", "{webpos_secret}");
+config.put("proxy", new HashMap(){{
+    put("hostname", "{proxy.hostname}");
+    put("port", 8000);
+    put("protocol", "http");
+    put("credentials", new HashMap(){{
+        put("user", "{proxy.username}");    
+        put("password", "{proxy.password}");    
+    }});
+}});
+
+ChainsideClient client = new ChainsideClient(config); 
+```
 
 
 ## Client
