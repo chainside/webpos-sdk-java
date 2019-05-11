@@ -1,14 +1,15 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.sdkboilerplate.exceptions.CallbackVerificationException;
-import net.webpossdk.api.ChainsideClient;
-import net.webpossdk.objects.*;
-import org.junit.Assert;
-import org.junit.Test;
-import org.powermock.reflect.Whitebox;
 import net.webpossdk.api.ChainsideApiContext;
 import net.webpossdk.api.ChainsideHeaders;
 import net.webpossdk.callbacks.ChainsideCallbackHandler;
 import net.webpossdk.lib.Hashers;
+import net.webpossdk.objects.CallbackPaymentOrder;
+import net.webpossdk.objects.PaymentCompletedCallback;
+import net.webpossdk.objects.TransactionCollection;
+import org.junit.Assert;
+import org.junit.Test;
+import org.powermock.reflect.Whitebox;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -103,7 +104,6 @@ public class TestCallbackHandler {
         Assert.assertEquals(parsed.btc_amount, (Integer) 3);
 
     }
-
 
 
 }

@@ -10,7 +10,7 @@
     </parent>
     <groupId>net.chainside.webpossdk</groupId>
     <artifactId>webpos-sdk-java</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 
     <properties>
         <maven.compiler.source>1.10</maven.compiler.source>
@@ -35,7 +35,7 @@
         <dependency>
             <groupId>it.moveax.sdkboilerplate</groupId>
             <artifactId>sdk-boilerplate</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

@@ -470,7 +470,23 @@ Payment order retrieval data
 
 
 
+## Exceptions
 
+Every exception raised due to Chainside error responses contains debug informations.
+
+```java
+
+try{
+    client.createPaymentOrder(paymentOrder)
+}catch (ChainsideHttpException e){
+    System.out.println(e.getDebugInfo())
+    System.out.println(e.getRequestId())
+}
+
+```  
+Debug Info contains general information about request and response headers, body and status code.
+Request Id is an internal id which can be communicated to chainside in order to help debugging the
+problem in case this cannot be identified.
 
 ## Callbacks
 
