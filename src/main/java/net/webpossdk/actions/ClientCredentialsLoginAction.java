@@ -3,16 +3,18 @@ Nigiri auto-generated file
 */
 package net.webpossdk.actions;
 
-import net.webpossdk.objects.*;
-import net.webpossdk.lib.*;
-import net.webpossdk.exceptions.*;
+import it.sdkboilerplate.exceptions.SdkHttpException;
+import it.sdkboilerplate.exceptions.UnserializableObjectException;
+import it.sdkboilerplate.lib.ApiContext;
+import it.sdkboilerplate.objects.SdkBodyType;
+import it.sdkboilerplate.validation.Schema;
+import net.webpossdk.exceptions.InvalidGrantTypeException;
+import net.webpossdk.exceptions.InvalidScopeException;
+import net.webpossdk.exceptions.UnauthorizedClientException;
+import net.webpossdk.objects.ClientCredentials;
+import net.webpossdk.objects.ClientCredentialsLoginResponse;
 
-import it.sdkboilerplate.exceptions.*;
-import it.sdkboilerplate.objects.*;
-import it.sdkboilerplate.lib.*;
-import it.sdkboilerplate.validation.*;
-
-import java.util.*;
+import java.util.HashMap;
 
 public class ClientCredentialsLoginAction extends ChainsideAuthenticatingAction {
     public ClientCredentialsLoginAction(ApiContext ctx) {
@@ -62,9 +64,9 @@ public class ClientCredentialsLoginAction extends ChainsideAuthenticatingAction 
     @Override
     public HashMap<String, String> getHeaders() {
         HashMap<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
         headers.put("X-Api-Version", "v1");
         headers.put("Accept", "application/json");
-        headers.put("Content-Type", "application/json");
         return headers;
     }
 

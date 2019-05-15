@@ -3,36 +3,36 @@ Nigiri auto-generated file
 */
 package net.webpossdk.objects;
 
-import it.sdkboilerplate.objects.*;
-import it.sdkboilerplate.validation.*;
-import it.sdkboilerplate.exceptions.*;
-
-import net.webpossdk.objects.schemas.*;
+import it.sdkboilerplate.exceptions.JsonSerializationException;
+import it.sdkboilerplate.objects.SdkBodyType;
+import it.sdkboilerplate.objects.SdkObject;
+import it.sdkboilerplate.validation.Schema;
+import net.webpossdk.objects.schemas.PaymentOrderRetrievalSchema;
 
 import java.util.HashMap;
 
 public class PaymentOrderRetrieval extends SdkObject {
-    public String created_at;
-    public String uuid;
-    public String address;
-    public CurrencyRetrieval currency;
-    public String reference;
-    public RateRetrieval rate;
-    public Integer expires_in;
-    public String expiration_time;
-    public String amount;
-    public String chargeback_date;
-    public String resolved_at;
-    public PaymentOrderCreator created_by;
-    public String callback_url;
-    public Integer required_confirmations;
-    public TransactionCollection transactions;
-    public String dispute_start_date;
-    public String details;
-    public String redirect_url;
-    public String uri;
     public Integer btc_amount;
     public PaymentOrderState state;
+    public PaymentOrderCreator created_by;
+    public String address;
+    public Integer expires_in;
+    public CurrencyRetrieval currency;
+    public RateRetrieval rate;
+    public Integer required_confirmations;
+    public String callback_url;
+    public String uuid;
+    public String resolved_at;
+    public String reference;
+    public String dispute_start_date;
+    public String amount;
+    public String details;
+    public String redirect_url;
+    public String created_at;
+    public TransactionCollection transactions;
+    public String chargeback_date;
+    public String expiration_time;
+    public String uri;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(PaymentOrderRetrievalSchema.jsonSchema);
@@ -40,100 +40,28 @@ public class PaymentOrderRetrieval extends SdkObject {
 
     public static HashMap<String, Class<? extends SdkBodyType>> getSubObjects() {
         HashMap<String, Class<? extends SdkBodyType>> subObjects = new HashMap<>();
+        subObjects.put("state", PaymentOrderState.class);
+        subObjects.put("created_by", PaymentOrderCreator.class);
         subObjects.put("currency", CurrencyRetrieval.class);
         subObjects.put("rate", RateRetrieval.class);
-        subObjects.put("created_by", PaymentOrderCreator.class);
         subObjects.put("transactions", TransactionCollection.class);
-        subObjects.put("state", PaymentOrderState.class);
         return subObjects;
     }
 
-    public String getCreatedAt() {
-        return this.created_at;
+    public Integer getBtcAmount() {
+        return this.btc_amount;
     }
 
-    public void setCreatedAt(String value) {
-        this.created_at = value;
+    public void setBtcAmount(Integer value) {
+        this.btc_amount = value;
     }
 
-    public String getUuid() {
-        return this.uuid;
+    public PaymentOrderState getState() {
+        return this.state;
     }
 
-    public void setUuid(String value) {
-        this.uuid = value;
-    }
-
-    public String getAddress() {
-        return this.address;
-    }
-
-    public void setAddress(String value) {
-        this.address = value;
-    }
-
-    public CurrencyRetrieval getCurrency() {
-        return this.currency;
-    }
-
-    public void setCurrency(CurrencyRetrieval value) {
-        this.currency = value;
-    }
-
-    public String getReference() {
-        return this.reference;
-    }
-
-    public void setReference(String value) {
-        this.reference = value;
-    }
-
-    public RateRetrieval getRate() {
-        return this.rate;
-    }
-
-    public void setRate(RateRetrieval value) {
-        this.rate = value;
-    }
-
-    public Integer getExpiresIn() {
-        return this.expires_in;
-    }
-
-    public void setExpiresIn(Integer value) {
-        this.expires_in = value;
-    }
-
-    public String getExpirationTime() {
-        return this.expiration_time;
-    }
-
-    public void setExpirationTime(String value) {
-        this.expiration_time = value;
-    }
-
-    public String getAmount() {
-        return this.amount;
-    }
-
-    public void setAmount(String value) {
-        this.amount = value;
-    }
-
-    public String getChargebackDate() {
-        return this.chargeback_date;
-    }
-
-    public void setChargebackDate(String value) {
-        this.chargeback_date = value;
-    }
-
-    public String getResolvedAt() {
-        return this.resolved_at;
-    }
-
-    public void setResolvedAt(String value) {
-        this.resolved_at = value;
+    public void setState(PaymentOrderState value) {
+        this.state = value;
     }
 
     public PaymentOrderCreator getCreatedBy() {
@@ -144,12 +72,36 @@ public class PaymentOrderRetrieval extends SdkObject {
         this.created_by = value;
     }
 
-    public String getCallbackUrl() {
-        return this.callback_url;
+    public String getAddress() {
+        return this.address;
     }
 
-    public void setCallbackUrl(String value) {
-        this.callback_url = value;
+    public void setAddress(String value) {
+        this.address = value;
+    }
+
+    public Integer getExpiresIn() {
+        return this.expires_in;
+    }
+
+    public void setExpiresIn(Integer value) {
+        this.expires_in = value;
+    }
+
+    public CurrencyRetrieval getCurrency() {
+        return this.currency;
+    }
+
+    public void setCurrency(CurrencyRetrieval value) {
+        this.currency = value;
+    }
+
+    public RateRetrieval getRate() {
+        return this.rate;
+    }
+
+    public void setRate(RateRetrieval value) {
+        this.rate = value;
     }
 
     public Integer getRequiredConfirmations() {
@@ -160,12 +112,36 @@ public class PaymentOrderRetrieval extends SdkObject {
         this.required_confirmations = value;
     }
 
-    public TransactionCollection getTransactions() {
-        return this.transactions;
+    public String getCallbackUrl() {
+        return this.callback_url;
     }
 
-    public void setTransactions(TransactionCollection value) {
-        this.transactions = value;
+    public void setCallbackUrl(String value) {
+        this.callback_url = value;
+    }
+
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public void setUuid(String value) {
+        this.uuid = value;
+    }
+
+    public String getResolvedAt() {
+        return this.resolved_at;
+    }
+
+    public void setResolvedAt(String value) {
+        this.resolved_at = value;
+    }
+
+    public String getReference() {
+        return this.reference;
+    }
+
+    public void setReference(String value) {
+        this.reference = value;
     }
 
     public String getDisputeStartDate() {
@@ -174,6 +150,14 @@ public class PaymentOrderRetrieval extends SdkObject {
 
     public void setDisputeStartDate(String value) {
         this.dispute_start_date = value;
+    }
+
+    public String getAmount() {
+        return this.amount;
+    }
+
+    public void setAmount(String value) {
+        this.amount = value;
     }
 
     public String getDetails() {
@@ -192,28 +176,44 @@ public class PaymentOrderRetrieval extends SdkObject {
         this.redirect_url = value;
     }
 
+    public String getCreatedAt() {
+        return this.created_at;
+    }
+
+    public void setCreatedAt(String value) {
+        this.created_at = value;
+    }
+
+    public TransactionCollection getTransactions() {
+        return this.transactions;
+    }
+
+    public void setTransactions(TransactionCollection value) {
+        this.transactions = value;
+    }
+
+    public String getChargebackDate() {
+        return this.chargeback_date;
+    }
+
+    public void setChargebackDate(String value) {
+        this.chargeback_date = value;
+    }
+
+    public String getExpirationTime() {
+        return this.expiration_time;
+    }
+
+    public void setExpirationTime(String value) {
+        this.expiration_time = value;
+    }
+
     public String getUri() {
         return this.uri;
     }
 
     public void setUri(String value) {
         this.uri = value;
-    }
-
-    public Integer getBtcAmount() {
-        return this.btc_amount;
-    }
-
-    public void setBtcAmount(Integer value) {
-        this.btc_amount = value;
-    }
-
-    public PaymentOrderState getState() {
-        return this.state;
-    }
-
-    public void setState(PaymentOrderState value) {
-        this.state = value;
     }
 
     public PaymentOrderRetrieval() {

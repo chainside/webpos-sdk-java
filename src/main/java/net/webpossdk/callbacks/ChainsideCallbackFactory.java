@@ -3,9 +3,7 @@ Nigiri auto-generated file
 */
 package net.webpossdk.callbacks;
 
-import it.sdkboilerplate.objects.*;
-
-import net.webpossdk.actions.*;
+import it.sdkboilerplate.objects.SdkObject;
 import net.webpossdk.objects.*;
 
 import java.util.HashMap;

@@ -3,35 +3,24 @@ Nigiri auto-generated file
 */
 package net.webpossdk.objects;
 
-import it.sdkboilerplate.objects.*;
-import it.sdkboilerplate.validation.*;
-import it.sdkboilerplate.exceptions.*;
-
-import net.webpossdk.objects.schemas.*;
-import net.webpossdk.objects.*;
+import it.sdkboilerplate.exceptions.JsonSerializationException;
+import it.sdkboilerplate.objects.SdkBodyType;
+import it.sdkboilerplate.objects.SdkObject;
+import it.sdkboilerplate.validation.Schema;
+import net.webpossdk.objects.schemas.CallbackPaymentOrderSchema;
 
 import java.util.HashMap;
 
 public class PaymentDisputeStartCallback extends SdkObject {
 
-    private CallbackPaymentOrder object;
+    private String event;
 
-    public CallbackPaymentOrder getObject() {
-        return this.object;
+    public String getEvent() {
+        return this.event;
     }
 
-    public void setObject(CallbackPaymentOrder value) {
-        this.object = value;
-    }
-
-    private String objectType;
-
-    public String getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(String value) {
-        this.objectType = value;
+    public void setEvent(String value) {
+        this.event = value;
     }
 
     private String createdAt;
@@ -44,14 +33,24 @@ public class PaymentDisputeStartCallback extends SdkObject {
         this.createdAt = value;
     }
 
-    private String event;
+    private String objectType;
 
-    public String getEvent() {
-        return this.event;
+    public String getObjectType() {
+        return this.objectType;
     }
 
-    public void setEvent(String value) {
-        this.event = value;
+    public void setObjectType(String value) {
+        this.objectType = value;
+    }
+
+    private CallbackPaymentOrder object;
+
+    public CallbackPaymentOrder getObject() {
+        return this.object;
+    }
+
+    public void setObject(CallbackPaymentOrder value) {
+        this.object = value;
     }
 
     public Schema getSchema() throws JsonSerializationException {

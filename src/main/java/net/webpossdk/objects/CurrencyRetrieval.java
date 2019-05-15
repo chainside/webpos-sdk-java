@@ -3,18 +3,18 @@ Nigiri auto-generated file
 */
 package net.webpossdk.objects;
 
-import it.sdkboilerplate.objects.*;
-import it.sdkboilerplate.validation.*;
-import it.sdkboilerplate.exceptions.*;
-
-import net.webpossdk.objects.schemas.*;
+import it.sdkboilerplate.exceptions.JsonSerializationException;
+import it.sdkboilerplate.objects.SdkBodyType;
+import it.sdkboilerplate.objects.SdkObject;
+import it.sdkboilerplate.validation.Schema;
+import net.webpossdk.objects.schemas.CurrencyRetrievalSchema;
 
 import java.util.HashMap;
 
 public class CurrencyRetrieval extends SdkObject {
+    public String uuid;
     public String type;
     public String name;
-    public String uuid;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(CurrencyRetrievalSchema.jsonSchema);
@@ -23,6 +23,14 @@ public class CurrencyRetrieval extends SdkObject {
     public static HashMap<String, Class<? extends SdkBodyType>> getSubObjects() {
         HashMap<String, Class<? extends SdkBodyType>> subObjects = new HashMap<>();
         return subObjects;
+    }
+
+    public String getUuid() {
+        return this.uuid;
+    }
+
+    public void setUuid(String value) {
+        this.uuid = value;
     }
 
     public String getType() {
@@ -39,14 +47,6 @@ public class CurrencyRetrieval extends SdkObject {
 
     public void setName(String value) {
         this.name = value;
-    }
-
-    public String getUuid() {
-        return this.uuid;
-    }
-
-    public void setUuid(String value) {
-        this.uuid = value;
     }
 
     public CurrencyRetrieval() {

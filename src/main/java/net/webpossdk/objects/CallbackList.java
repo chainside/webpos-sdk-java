@@ -3,11 +3,11 @@ Nigiri auto-generated file
 */
 package net.webpossdk.objects;
 
-import it.sdkboilerplate.objects.*;
-import it.sdkboilerplate.validation.*;
-import it.sdkboilerplate.exceptions.*;
-
-import net.webpossdk.objects.schemas.*;
+import it.sdkboilerplate.exceptions.JsonSerializationException;
+import it.sdkboilerplate.objects.SdkBodyType;
+import it.sdkboilerplate.objects.SdkObject;
+import it.sdkboilerplate.validation.Schema;
+import net.webpossdk.objects.schemas.CallbackListSchema;
 
 import java.util.HashMap;
 

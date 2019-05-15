@@ -3,20 +3,20 @@ Nigiri auto-generated file
 */
 package net.webpossdk.objects;
 
-import it.sdkboilerplate.objects.*;
-import it.sdkboilerplate.validation.*;
-import it.sdkboilerplate.exceptions.*;
-
-import net.webpossdk.objects.schemas.*;
+import it.sdkboilerplate.exceptions.JsonSerializationException;
+import it.sdkboilerplate.objects.SdkBodyType;
+import it.sdkboilerplate.objects.SdkObject;
+import it.sdkboilerplate.validation.Schema;
+import net.webpossdk.objects.schemas.PaymentOrderStateSchema;
 
 import java.util.HashMap;
 
 public class PaymentOrderState extends SdkObject {
     public String status;
     public PaidStatus paid;
-    public PaidStatus in_confirmation;
     public String blockchain_status;
     public PaidStatus unpaid;
+    public PaidStatus in_confirmation;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(PaymentOrderStateSchema.jsonSchema);
@@ -25,8 +25,8 @@ public class PaymentOrderState extends SdkObject {
     public static HashMap<String, Class<? extends SdkBodyType>> getSubObjects() {
         HashMap<String, Class<? extends SdkBodyType>> subObjects = new HashMap<>();
         subObjects.put("paid", PaidStatus.class);
-        subObjects.put("in_confirmation", PaidStatus.class);
         subObjects.put("unpaid", PaidStatus.class);
+        subObjects.put("in_confirmation", PaidStatus.class);
         return subObjects;
     }
 
@@ -46,14 +46,6 @@ public class PaymentOrderState extends SdkObject {
         this.paid = value;
     }
 
-    public PaidStatus getInConfirmation() {
-        return this.in_confirmation;
-    }
-
-    public void setInConfirmation(PaidStatus value) {
-        this.in_confirmation = value;
-    }
-
     public String getBlockchainStatus() {
         return this.blockchain_status;
     }
@@ -68,6 +60,14 @@ public class PaymentOrderState extends SdkObject {
 
     public void setUnpaid(PaidStatus value) {
         this.unpaid = value;
+    }
+
+    public PaidStatus getInConfirmation() {
+        return this.in_confirmation;
+    }
+
+    public void setInConfirmation(PaidStatus value) {
+        this.in_confirmation = value;
     }
 
     public PaymentOrderState() {

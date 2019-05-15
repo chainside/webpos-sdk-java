@@ -3,19 +3,20 @@ Nigiri auto-generated file
 */
 package net.webpossdk.objects;
 
-import it.sdkboilerplate.objects.*;
-import it.sdkboilerplate.validation.*;
-import it.sdkboilerplate.exceptions.*;
-
-import net.webpossdk.objects.schemas.*;
+import it.sdkboilerplate.exceptions.JsonSerializationException;
+import it.sdkboilerplate.objects.SdkBodyType;
+import it.sdkboilerplate.objects.SdkObject;
+import it.sdkboilerplate.validation.Schema;
+import net.webpossdk.objects.schemas.PaymentOrderCreatorSchema;
 
 import java.util.HashMap;
 
 public class PaymentOrderCreator extends SdkObject {
-    public String type;
-    public String name;
-    public DepositAccountLite deposit_account;
     public String uuid;
+    public DepositAccountLite deposit_account;
+    public String type;
+    public Boolean active;
+    public String name;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(PaymentOrderCreatorSchema.jsonSchema);
@@ -27,20 +28,12 @@ public class PaymentOrderCreator extends SdkObject {
         return subObjects;
     }
 
-    public String getType() {
-        return this.type;
+    public String getUuid() {
+        return this.uuid;
     }
 
-    public void setType(String value) {
-        this.type = value;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String value) {
-        this.name = value;
+    public void setUuid(String value) {
+        this.uuid = value;
     }
 
     public DepositAccountLite getDepositAccount() {
@@ -51,12 +44,28 @@ public class PaymentOrderCreator extends SdkObject {
         this.deposit_account = value;
     }
 
-    public String getUuid() {
-        return this.uuid;
+    public String getType() {
+        return this.type;
     }
 
-    public void setUuid(String value) {
-        this.uuid = value;
+    public void setType(String value) {
+        this.type = value;
+    }
+
+    public Boolean getActive() {
+        return this.active;
+    }
+
+    public void setActive(Boolean value) {
+        this.active = value;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String value) {
+        this.name = value;
     }
 
     public PaymentOrderCreator() {

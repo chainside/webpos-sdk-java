@@ -3,16 +3,14 @@ Nigiri auto-generated file
 */
 package net.webpossdk.actions;
 
-import net.webpossdk.objects.*;
-import net.webpossdk.lib.*;
-import net.webpossdk.exceptions.*;
+import it.sdkboilerplate.exceptions.SdkHttpException;
+import it.sdkboilerplate.lib.ApiContext;
+import it.sdkboilerplate.objects.SdkBodyType;
+import it.sdkboilerplate.validation.Schema;
+import net.webpossdk.exceptions.NotFoundException;
+import net.webpossdk.objects.PaymentOrderRetrieval;
 
-import it.sdkboilerplate.exceptions.*;
-import it.sdkboilerplate.objects.*;
-import it.sdkboilerplate.lib.*;
-import it.sdkboilerplate.validation.*;
-
-import java.util.*;
+import java.util.HashMap;
 
 public class PaymentResetAction extends ChainsideAuthenticatedAction {
     public PaymentResetAction(ApiContext ctx) {
@@ -60,9 +58,9 @@ public class PaymentResetAction extends ChainsideAuthenticatedAction {
     @Override
     public HashMap<String, String> getHeaders() {
         HashMap<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
         headers.put("X-Api-Version", "v1");
         headers.put("Accept", "application/json");
-        headers.put("Content-Type", "application/json");
         return headers;
     }
 
