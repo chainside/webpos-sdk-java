@@ -10,7 +10,7 @@
     </parent>
     <groupId>net.chainside.webpossdk</groupId>
     <artifactId>webpos-sdk-java</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
 
     <properties>
         <maven.compiler.source>1.10</maven.compiler.source>

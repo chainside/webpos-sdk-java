@@ -3,88 +3,73 @@ Nigiri auto-generated file
 */
 package net.webpossdk.actions;
 
-import it.sdkboilerplate.exceptions.SdkHttpException;
-import it.sdkboilerplate.lib.ApiContext;
-import it.sdkboilerplate.objects.SdkBodyType;
-import it.sdkboilerplate.validation.Schema;
-import net.webpossdk.exceptions.NotFoundException;
-import net.webpossdk.objects.PaymentOrderList;
+import net.webpossdk.objects.*;
+import net.webpossdk.lib.*;
+import net.webpossdk.exceptions.*;
 
-import java.util.HashMap;
+import it.sdkboilerplate.exceptions.*;
+import it.sdkboilerplate.objects.*;
+import it.sdkboilerplate.lib.*;
+import it.sdkboilerplate.validation.*;
 
-public class GetWebPosPaymentsAction extends ChainsideAuthenticatedAction {
-    public GetWebPosPaymentsAction(ApiContext ctx) {
+import java.util.*;
+
+public class GetWebPosPaymentsAction extends ChainsideAuthenticatedAction{
+    public GetWebPosPaymentsAction(ApiContext ctx){
         super(ctx);
     }
-
     @Override
-    public String getRoute() {
-        return "/pos/web/{pos_uuid}/payment-order";
+    public String getRoute(){
+            return "/pos/web/{pos_uuid}/payment-order";
     }
-
     @Override
-    public String getVerb() {
+    public String getVerb(){
         return "GET";
 
     }
-
     @Override
-    public Schema getQueryParametersSchema() {
-        return new Schema();
-    }
-
+    public Schema getQueryParametersSchema () {return new Schema();}
     @Override
-    public Schema getRouteParametersSchema() {
-        return new Schema();
-    }
+    public Schema getRouteParametersSchema () {return new Schema();}
 
     public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
         HashMap<String, Class<? extends SdkHttpException>> errors = new HashMap<>();
         errors.putAll(super.getErrors());
-        errors.put("3001", NotFoundException.class);
+        errors.put("3001" , NotFoundException.class);
         return errors;
-    }
-
+        }
     @Override
     public Class<? extends SdkBodyType> getRequestBodyClass() {
         return null;
-    }
-
+        }
     @Override
     public Class<? extends SdkBodyType> getResponseBodyClass() {
         return PaymentOrderList.class;
-    }
-
+        }
     @Override
-    public HashMap<String, String> getHeaders() {
+    public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        headers.put("X-Api-Version", "v1");
         headers.put("Accept", "application/json");
+        headers.put("X-Api-Version", "v1");
         return headers;
     }
-
-    public void setPosUuid(String value) {
+    public void setPosUuid(String value){
         this.setRouteParameter("pos_uuid", value);
     }
-
-    public void setSortOrder(String value) {
-        this.setQueryParameter("sort_order", value);
-    }
-
-    public void setPage(String value) {
+    public void setPage(String value){
         this.setQueryParameter("page", value);
     }
-
-    public void setStatus(String value) {
-        this.setQueryParameter("status", value);
-    }
-
-    public void setPageSize(String value) {
+    public void setPageSize(String value){
         this.setQueryParameter("page_size", value);
     }
-
-    public void setSortBy(String value) {
+    public void setSortBy(String value){
         this.setQueryParameter("sort_by", value);
     }
-}
+    public void setSortOrder(String value){
+        this.setQueryParameter("sort_order", value);
+    }
+    public void setStatus(String value){
+        this.setQueryParameter("status", value);
+    }
+    }
