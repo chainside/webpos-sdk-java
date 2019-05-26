@@ -483,12 +483,26 @@ Every exception raised due to Chainside error responses contains debug informati
 
 try{
     client.createPaymentOrder(paymentOrder)
-}catch (ChainsideHttpExceptio e){
+}catch (ChainsideHttpException e){
     System.out.println(e.getDebugInfo())
     System.out.println(e.getRequestId())
 }
 
-```  
+``` 
+
+If the error code is unknown to the client method, you can still catch debugInfo excepting UnknownHttpException 
+instances:
+
+```java
+
+try{
+    client.createPaymentOrder(paymentOrder)
+}catch (UnknownHttpException e){
+    System.out.println(e.getDebugInfo())
+}
+
+``` 
+
 Debug Info contains general information about request and response headers, body and status code.
 Request Id is an internal id which can be communicated to chainside in order to help debugging the
 problem in case this cannot be identified.
