@@ -12,7 +12,7 @@ import net.webpossdk.objects.schemas.PaidStatusSchema;
 import java.util.HashMap;
 
 public class PaidStatus extends SdkObject {
-    public Integer crypto;
+    public Long crypto;
     public String fiat;
 
     public Schema getSchema() throws JsonSerializationException {
@@ -24,11 +24,15 @@ public class PaidStatus extends SdkObject {
         return subObjects;
     }
 
-    public Integer getCrypto() {
+    public Long getCrypto() {
         return this.crypto;
     }
 
     public void setCrypto(Integer value) {
+        this.crypto = Long.valueOf(value);
+    }
+
+    public void setCrypto(Long value) {
         this.crypto = value;
     }
 

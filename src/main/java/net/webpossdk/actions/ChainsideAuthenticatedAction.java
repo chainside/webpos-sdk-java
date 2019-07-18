@@ -13,6 +13,7 @@ import net.webpossdk.objects.ClientCredentials;
 import net.webpossdk.objects.ClientCredentialsLoginResponse;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Superclass for actions which require authorization. It declares the AuthorizationHook as a pre-send hook.
@@ -32,6 +33,13 @@ public abstract class ChainsideAuthenticatedAction extends ChainsideAction {
         preSendHooks.add(AuthorizationHook.class);
         preSendHooks.addAll(super.getPreSendHooks());
         return preSendHooks;
+    }
+
+    @Override
+    public HashMap<String, Class<? extends SdkHttpException>> getErrors() {
+        HashMap<String, Class<? extends SdkHttpException>> errors = new HashMap();
+        errors.put("1004", AccessTokenExpiredException.class);
+        return errors;
     }
 
     @Override

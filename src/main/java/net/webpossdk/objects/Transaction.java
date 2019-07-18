@@ -12,13 +12,13 @@ import net.webpossdk.objects.schemas.TransactionSchema;
 import java.util.HashMap;
 
 public class Transaction extends SdkObject {
-    public Integer outs_sum;
-    public String blockchain_status;
-    public String txid;
-    public OutCollection outs;
-    public String created_at;
-    public String status;
     public String normalized_txid;
+    public String txid;
+    public String created_at;
+    public Long outs_sum;
+    public OutCollection outs;
+    public String blockchain_status;
+    public String status;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(TransactionSchema.jsonSchema);
@@ -30,20 +30,12 @@ public class Transaction extends SdkObject {
         return subObjects;
     }
 
-    public Integer getOutsSum() {
-        return this.outs_sum;
+    public String getNormalizedTxid() {
+        return this.normalized_txid;
     }
 
-    public void setOutsSum(Integer value) {
-        this.outs_sum = value;
-    }
-
-    public String getBlockchainStatus() {
-        return this.blockchain_status;
-    }
-
-    public void setBlockchainStatus(String value) {
-        this.blockchain_status = value;
+    public void setNormalizedTxid(String value) {
+        this.normalized_txid = value;
     }
 
     public String getTxid() {
@@ -54,14 +46,6 @@ public class Transaction extends SdkObject {
         this.txid = value;
     }
 
-    public OutCollection getOuts() {
-        return this.outs;
-    }
-
-    public void setOuts(OutCollection value) {
-        this.outs = value;
-    }
-
     public String getCreatedAt() {
         return this.created_at;
     }
@@ -70,20 +54,40 @@ public class Transaction extends SdkObject {
         this.created_at = value;
     }
 
+    public Long getOutsSum() {
+        return this.outs_sum;
+    }
+
+    public void setOutsSum(Integer value) {
+        this.outs_sum = Long.valueOf(value);
+    }
+
+    public void setOutsSum(Long value) {
+        this.outs_sum = value;
+    }
+
+    public OutCollection getOuts() {
+        return this.outs;
+    }
+
+    public void setOuts(OutCollection value) {
+        this.outs = value;
+    }
+
+    public String getBlockchainStatus() {
+        return this.blockchain_status;
+    }
+
+    public void setBlockchainStatus(String value) {
+        this.blockchain_status = value;
+    }
+
     public String getStatus() {
         return this.status;
     }
 
     public void setStatus(String value) {
         this.status = value;
-    }
-
-    public String getNormalizedTxid() {
-        return this.normalized_txid;
-    }
-
-    public void setNormalizedTxid(String value) {
-        this.normalized_txid = value;
     }
 
     public Transaction() {

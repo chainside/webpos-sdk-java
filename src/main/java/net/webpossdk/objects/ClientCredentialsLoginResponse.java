@@ -13,10 +13,10 @@ import java.util.HashMap;
 
 public class ClientCredentialsLoginResponse extends SdkObject {
     public String id_token;
+    public String access_token;
     public String token_type;
     public Integer expires_in;
     public String scope;
-    public String access_token;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(ClientCredentialsLoginResponseSchema.jsonSchema);
@@ -33,6 +33,14 @@ public class ClientCredentialsLoginResponse extends SdkObject {
 
     public void setIdToken(String value) {
         this.id_token = value;
+    }
+
+    public String getAccessToken() {
+        return this.access_token;
+    }
+
+    public void setAccessToken(String value) {
+        this.access_token = value;
     }
 
     public String getTokenType() {
@@ -57,14 +65,6 @@ public class ClientCredentialsLoginResponse extends SdkObject {
 
     public void setScope(String value) {
         this.scope = value;
-    }
-
-    public String getAccessToken() {
-        return this.access_token;
-    }
-
-    public void setAccessToken(String value) {
-        this.access_token = value;
     }
 
     public ClientCredentialsLoginResponse() {

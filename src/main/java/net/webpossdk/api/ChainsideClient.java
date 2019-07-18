@@ -50,6 +50,12 @@ public class ChainsideClient {
     public PaymentOrderList getPaymentOrders(String page, String pageSize, String sortBy, String sortOrder, String status)
             throws SdkException {
         GetPaymentOrdersAction action = (GetPaymentOrdersAction) this.factory.make("getPaymentOrders");
+        if (page != null) {
+            action.setPage(page);
+        }
+        if (status != null) {
+            action.setStatus(status);
+        }
         if (pageSize != null) {
             action.setPageSize(pageSize);
         }
@@ -58,12 +64,6 @@ public class ChainsideClient {
         }
         if (sortBy != null) {
             action.setSortBy(sortBy);
-        }
-        if (page != null) {
-            action.setPage(page);
-        }
-        if (status != null) {
-            action.setStatus(status);
         }
         return (PaymentOrderList) action.run();
     }

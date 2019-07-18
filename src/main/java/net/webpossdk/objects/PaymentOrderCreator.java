@@ -12,9 +12,9 @@ import net.webpossdk.objects.schemas.PaymentOrderCreatorSchema;
 import java.util.HashMap;
 
 public class PaymentOrderCreator extends SdkObject {
+    public String type;
     public String uuid;
     public DepositAccountLite deposit_account;
-    public String type;
     public String name;
     public Boolean active;
 
@@ -26,6 +26,14 @@ public class PaymentOrderCreator extends SdkObject {
         HashMap<String, Class<? extends SdkBodyType>> subObjects = new HashMap();
         subObjects.put("deposit_account", DepositAccountLite.class);
         return subObjects;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String value) {
+        this.type = value;
     }
 
     public String getUuid() {
@@ -42,14 +50,6 @@ public class PaymentOrderCreator extends SdkObject {
 
     public void setDepositAccount(DepositAccountLite value) {
         this.deposit_account = value;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String value) {
-        this.type = value;
     }
 
     public String getName() {

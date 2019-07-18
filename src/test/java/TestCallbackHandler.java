@@ -1,12 +1,11 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.sdkboilerplate.exceptions.CallbackVerificationException;
 import net.webpossdk.api.ChainsideApiContext;
+import net.webpossdk.api.ChainsideClient;
 import net.webpossdk.api.ChainsideHeaders;
 import net.webpossdk.callbacks.ChainsideCallbackHandler;
 import net.webpossdk.lib.Hashers;
-import net.webpossdk.objects.CallbackPaymentOrder;
-import net.webpossdk.objects.PaymentCompletedCallback;
-import net.webpossdk.objects.TransactionCollection;
+import net.webpossdk.objects.*;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Assert;
 import org.junit.Test;
@@ -101,9 +100,10 @@ public class TestCallbackHandler {
         CallbackPaymentOrder parsed = cb.getObject();
         Assert.assertEquals(parsed.address, "testAddress");
         Assert.assertEquals(parsed.amount, "10.00");
-        Assert.assertEquals(parsed.btc_amount, (Integer) 3);
+        Assert.assertEquals(parsed.btc_amount, Long.valueOf(3));
 
     }
+
 
 
 }

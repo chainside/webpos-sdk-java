@@ -12,13 +12,13 @@ import net.webpossdk.objects.schemas.PaymentOrderCreationSchema;
 import java.util.HashMap;
 
 public class PaymentOrderCreation extends SdkObject {
-    public String cancel_url;
     public String details;
-    public String amount;
-    public String callback_url;
-    public Integer required_confirmations;
     public String continue_url;
     public String reference;
+    public String amount;
+    public String cancel_url;
+    public Integer required_confirmations;
+    public String callback_url;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(PaymentOrderCreationSchema.jsonSchema);
@@ -29,44 +29,12 @@ public class PaymentOrderCreation extends SdkObject {
         return subObjects;
     }
 
-    public String getCancelUrl() {
-        return this.cancel_url;
-    }
-
-    public void setCancelUrl(String value) {
-        this.cancel_url = value;
-    }
-
     public String getDetails() {
         return this.details;
     }
 
     public void setDetails(String value) {
         this.details = value;
-    }
-
-    public String getAmount() {
-        return this.amount;
-    }
-
-    public void setAmount(String value) {
-        this.amount = value;
-    }
-
-    public String getCallbackUrl() {
-        return this.callback_url;
-    }
-
-    public void setCallbackUrl(String value) {
-        this.callback_url = value;
-    }
-
-    public Integer getRequiredConfirmations() {
-        return this.required_confirmations;
-    }
-
-    public void setRequiredConfirmations(Integer value) {
-        this.required_confirmations = value;
     }
 
     public String getContinueUrl() {
@@ -83,6 +51,38 @@ public class PaymentOrderCreation extends SdkObject {
 
     public void setReference(String value) {
         this.reference = value;
+    }
+
+    public String getAmount() {
+        return this.amount;
+    }
+
+    public void setAmount(String value) {
+        this.amount = value;
+    }
+
+    public String getCancelUrl() {
+        return this.cancel_url;
+    }
+
+    public void setCancelUrl(String value) {
+        this.cancel_url = value;
+    }
+
+    public Integer getRequiredConfirmations() {
+        return this.required_confirmations;
+    }
+
+    public void setRequiredConfirmations(Integer value) {
+        this.required_confirmations = value;
+    }
+
+    public String getCallbackUrl() {
+        return this.callback_url;
+    }
+
+    public void setCallbackUrl(String value) {
+        this.callback_url = value;
     }
 
     public PaymentOrderCreation() {

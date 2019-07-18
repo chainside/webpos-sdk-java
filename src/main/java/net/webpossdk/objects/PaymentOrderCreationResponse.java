@@ -12,14 +12,14 @@ import net.webpossdk.objects.schemas.PaymentOrderCreationResponseSchema;
 import java.util.HashMap;
 
 public class PaymentOrderCreationResponse extends SdkObject {
-    public String address;
-    public String uuid;
-    public Integer expires_in;
-    public String expiration_time;
-    public RateRetrieval rate;
     public String redirect_url;
+    public String uuid;
+    public String expiration_time;
+    public Long amount;
+    public String address;
     public String uri;
-    public Integer amount;
+    public Integer expires_in;
+    public RateRetrieval rate;
 
     public Schema getSchema() throws JsonSerializationException {
         return new Schema(PaymentOrderCreationResponseSchema.jsonSchema);
@@ -31,12 +31,12 @@ public class PaymentOrderCreationResponse extends SdkObject {
         return subObjects;
     }
 
-    public String getAddress() {
-        return this.address;
+    public String getRedirectUrl() {
+        return this.redirect_url;
     }
 
-    public void setAddress(String value) {
-        this.address = value;
+    public void setRedirectUrl(String value) {
+        this.redirect_url = value;
     }
 
     public String getUuid() {
@@ -47,14 +47,6 @@ public class PaymentOrderCreationResponse extends SdkObject {
         this.uuid = value;
     }
 
-    public Integer getExpiresIn() {
-        return this.expires_in;
-    }
-
-    public void setExpiresIn(Integer value) {
-        this.expires_in = value;
-    }
-
     public String getExpirationTime() {
         return this.expiration_time;
     }
@@ -63,20 +55,24 @@ public class PaymentOrderCreationResponse extends SdkObject {
         this.expiration_time = value;
     }
 
-    public RateRetrieval getRate() {
-        return this.rate;
+    public Long getAmount() {
+        return this.amount;
     }
 
-    public void setRate(RateRetrieval value) {
-        this.rate = value;
+    public void setAmount(Integer value) {
+        this.amount = Long.valueOf(value);
     }
 
-    public String getRedirectUrl() {
-        return this.redirect_url;
+    public void setAmount(Long value) {
+        this.amount = value;
     }
 
-    public void setRedirectUrl(String value) {
-        this.redirect_url = value;
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String value) {
+        this.address = value;
     }
 
     public String getUri() {
@@ -87,12 +83,20 @@ public class PaymentOrderCreationResponse extends SdkObject {
         this.uri = value;
     }
 
-    public Integer getAmount() {
-        return this.amount;
+    public Integer getExpiresIn() {
+        return this.expires_in;
     }
 
-    public void setAmount(Integer value) {
-        this.amount = value;
+    public void setExpiresIn(Integer value) {
+        this.expires_in = value;
+    }
+
+    public RateRetrieval getRate() {
+        return this.rate;
+    }
+
+    public void setRate(RateRetrieval value) {
+        this.rate = value;
     }
 
     public PaymentOrderCreationResponse() {

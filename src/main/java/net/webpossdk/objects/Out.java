@@ -12,7 +12,7 @@ import net.webpossdk.objects.schemas.OutSchema;
 import java.util.HashMap;
 
 public class Out extends SdkObject {
-    public Integer amount;
+    public Long amount;
     public Integer n;
 
     public Schema getSchema() throws JsonSerializationException {
@@ -24,11 +24,15 @@ public class Out extends SdkObject {
         return subObjects;
     }
 
-    public Integer getAmount() {
+    public Long getAmount() {
         return this.amount;
     }
 
     public void setAmount(Integer value) {
+        this.amount = Long.valueOf(value);
+    }
+
+    public void setAmount(Long value) {
         this.amount = value;
     }
 
