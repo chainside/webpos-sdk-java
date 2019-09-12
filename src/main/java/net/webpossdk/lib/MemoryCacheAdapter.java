@@ -1,11 +1,12 @@
 package net.webpossdk.lib;
 
 import it.sdkboilerplate.cache.CacheAdapter;
-import org.cache2k.Cache;
-import org.cache2k.Cache2kBuilder;
 
-public class TwoKCacheAdapter extends CacheAdapter {
-    private Cache<String, String> cache;
+import java.util.HashMap;
+
+
+public class MemoryCacheAdapter extends CacheAdapter {
+    private HashMap<String, String> cache;
 
     @Override
     public String get(String value) {
@@ -22,8 +23,7 @@ public class TwoKCacheAdapter extends CacheAdapter {
         this.cache.remove(key);
     }
 
-    public TwoKCacheAdapter() {
-        this.cache = new Cache2kBuilder<String, String>() {
-        }.build();
+    public MemoryCacheAdapter() {
+        this.cache = new HashMap();
     }
 }

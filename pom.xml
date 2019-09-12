@@ -10,7 +10,7 @@
     </parent>
     <groupId>net.chainside.webpossdk</groupId>
     <artifactId>webpos-sdk-java</artifactId>
-    <version>1.4.1</version>
+    <version>1.4.2</version>
 
     <properties>
         <java.version>1.7</java.version>
@@ -40,12 +40,6 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.cache2k</groupId>
-            <artifactId>cache2k-base-bom</artifactId>
-            <version>1.2.1.Final</version>
-            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
