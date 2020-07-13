@@ -27,6 +27,25 @@ public class ChainsideClient{
 
 
     }
+    public CallbackList getCallbacks(String paymentOrderUuid)
+        throws SdkException{
+        GetCallbacksAction action = (GetCallbacksAction)this.factory.make("getCallbacks");
+        action.setPaymentOrderUuid(paymentOrderUuid);
+        return (CallbackList)action.run();
+        }
+    public PaymentOrderRetrieval paymentReset(String paymentOrderUuid)
+        throws SdkException{
+        PaymentResetAction action = (PaymentResetAction)this.factory.make("paymentReset");
+        action.setPaymentOrderUuid(paymentOrderUuid);
+        return (PaymentOrderRetrieval)action.run();
+        }
+    public void paymentUpdate(String paymentOrderUuid,PaymentUpdateObject paymentUpdateObject)
+        throws SdkException{
+        PaymentUpdateAction action = (PaymentUpdateAction)this.factory.make("paymentUpdate");
+        action.setPaymentOrderUuid(paymentOrderUuid);
+        action.setPaymentUpdateObject(paymentUpdateObject);
+        action.run();
+        }
     public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
         throws SdkException{
         ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
@@ -48,20 +67,20 @@ public class ChainsideClient{
     public PaymentOrderList getPaymentOrders(String page,String pageSize,String sortBy,String sortOrder,String status)
         throws SdkException{
         GetPaymentOrdersAction action = (GetPaymentOrdersAction)this.factory.make("getPaymentOrders");
-        if (sortBy != null){
-        action.setSortBy(sortBy);
-        }
-        if (pageSize != null){
-        action.setPageSize(pageSize);
+        if (sortOrder != null){
+        action.setSortOrder(sortOrder);
         }
         if (page != null){
         action.setPage(page);
         }
-        if (sortOrder != null){
-        action.setSortOrder(sortOrder);
-        }
         if (status != null){
         action.setStatus(status);
+        }
+        if (pageSize != null){
+        action.setPageSize(pageSize);
+        }
+        if (sortBy != null){
+        action.setSortBy(sortBy);
         }
         return (PaymentOrderList)action.run();
         }
@@ -70,25 +89,6 @@ public class ChainsideClient{
         CreatePaymentOrderAction action = (CreatePaymentOrderAction)this.factory.make("createPaymentOrder");
         action.setPaymentOrderCreation(paymentOrderCreation);
         return (PaymentOrderCreationResponse)action.run();
-        }
-    public CallbackList getCallbacks(String paymentOrderUuid)
-        throws SdkException{
-        GetCallbacksAction action = (GetCallbacksAction)this.factory.make("getCallbacks");
-        action.setPaymentOrderUuid(paymentOrderUuid);
-        return (CallbackList)action.run();
-        }
-    public PaymentOrderRetrieval paymentReset(String paymentOrderUuid)
-        throws SdkException{
-        PaymentResetAction action = (PaymentResetAction)this.factory.make("paymentReset");
-        action.setPaymentOrderUuid(paymentOrderUuid);
-        return (PaymentOrderRetrieval)action.run();
-        }
-    public void paymentUpdate(String paymentOrderUuid,PaymentUpdateObject paymentUpdateObject)
-        throws SdkException{
-        PaymentUpdateAction action = (PaymentUpdateAction)this.factory.make("paymentUpdate");
-        action.setPaymentOrderUuid(paymentOrderUuid);
-        action.setPaymentUpdateObject(paymentUpdateObject);
-        action.run();
         }
     public void login() throws Exception {
         ChainsideAuthenticatedAction.login(this.ctx);

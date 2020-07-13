@@ -13,10 +13,8 @@ import java.util.HashMap;
 
 public class RateRetrieval extends SdkObject{
     public String created_at;
-        public String value;
-        public String to;
         public String source;
-        public String from;
+        public String value;
         public Schema getSchema() throws JsonSerializationException{
             return new Schema(RateRetrievalSchema.jsonSchema);
         }
@@ -30,29 +28,17 @@ public class RateRetrieval extends SdkObject{
         public void setCreatedAt(String value){
             this.created_at = value;
         }
-        public String getValue(){
-            return this.value;
-        }
-        public void setValue(String value){
-            this.value = value;
-        }
-        public String getTo(){
-            return this.to;
-        }
-        public void setTo(String value){
-            this.to = value;
-        }
         public String getSource(){
             return this.source;
         }
         public void setSource(String value){
             this.source = value;
         }
-        public String getFrom(){
-            return this.from;
+        public String getValue(){
+            return this.value;
         }
-        public void setFrom(String value){
-            this.from = value;
+        public void setValue(String value){
+            this.value = value;
         }
         public RateRetrieval(){}
 }

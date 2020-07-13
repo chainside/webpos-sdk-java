@@ -52,9 +52,9 @@ public class CreatePaymentOrderAction extends ChainsideAuthenticatedAction{
     @Override
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap();
-        headers.put("Content-Type", "application/json");
-        headers.put("Accept", "application/json");
         headers.put("X-Api-Version", "v1");
+        headers.put("Accept", "application/json");
+        headers.put("Content-Type", "application/json");
         return headers;
     }
 
