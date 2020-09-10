@@ -53,9 +53,9 @@ public class ClientCredentialsLoginAction extends ChainsideAuthenticatingAction{
     @Override
     public HashMap<String, String> getHeaders(){
         HashMap<String, String> headers = new HashMap();
-        headers.put("X-Api-Version", "v1");
         headers.put("Accept", "application/json");
-        headers.put("Content-Type", "application/json");
+        headers.put("Content-Type", "application/x-www-form-urlencoded");
+        headers.put("X-Api-Version", "v1");
         return headers;
     }
 

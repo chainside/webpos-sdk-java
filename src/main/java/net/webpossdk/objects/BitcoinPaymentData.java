@@ -12,19 +12,25 @@ import net.webpossdk.objects.schemas.*;
 import java.util.HashMap;
 
 public class BitcoinPaymentData extends SdkObject{
-    public String address;
-        public Integer required_confirmations;
-        public PaymentOrderState state;
+    public TransactionCollection transactions;
+        public String address;
         public String uri;
-        public TransactionCollection transactions;
+        public PaymentOrderState state;
+        public Integer required_confirmations;
         public Schema getSchema() throws JsonSerializationException{
             return new Schema(BitcoinPaymentDataSchema.jsonSchema);
         }
     public static HashMap<String, Class<? extends SdkBodyType>> getSubObjects() {
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap();
-        subObjects.put("state" , PaymentOrderState.class);
         subObjects.put("transactions", TransactionCollection.class);
+        subObjects.put("state" , PaymentOrderState.class);
         return subObjects;
+        }
+        public TransactionCollection getTransactions(){
+            return this.transactions;
+        }
+        public void setTransactions(TransactionCollection value){
+            this.transactions = value;
         }
         public String getAddress(){
             return this.address;
@@ -32,11 +38,11 @@ public class BitcoinPaymentData extends SdkObject{
         public void setAddress(String value){
             this.address = value;
         }
-        public Integer getRequiredConfirmations(){
-            return this.required_confirmations;
+        public String getUri(){
+            return this.uri;
         }
-        public void setRequiredConfirmations(Integer value){
-            this.required_confirmations = value;
+        public void setUri(String value){
+            this.uri = value;
         }
         public PaymentOrderState getState(){
             return this.state;
@@ -44,17 +50,11 @@ public class BitcoinPaymentData extends SdkObject{
         public void setState(PaymentOrderState value){
             this.state = value;
         }
-        public String getUri(){
-            return this.uri;
+        public Integer getRequiredConfirmations(){
+            return this.required_confirmations;
         }
-        public void setUri(String value){
-            this.uri = value;
-        }
-        public TransactionCollection getTransactions(){
-            return this.transactions;
-        }
-        public void setTransactions(TransactionCollection value){
-            this.transactions = value;
+        public void setRequiredConfirmations(Integer value){
+            this.required_confirmations = value;
         }
         public BitcoinPaymentData(){}
 }

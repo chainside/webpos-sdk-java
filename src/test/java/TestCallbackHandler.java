@@ -82,10 +82,8 @@ public class TestCallbackHandler {
         CallbackPaymentOrder paymentOrder = new CallbackPaymentOrder();
         TransactionCollection transactions = new TransactionCollection(new ArrayList());
 
-        paymentOrder.setAddress("testAddress");
-        paymentOrder.setAmount("10.00");
-        paymentOrder.setBtcAmount(3);
-        paymentOrder.setTransactions(transactions);
+        paymentOrder.setUuid("9dfb01f9-ffc8-4b96-935c-46a4f4642c37");
+
 
         HashMap<String, Object> serialized = paymentOrder.toHashMap();
         HashMap<String, Object> callbackBody = new HashMap();
@@ -99,9 +97,8 @@ public class TestCallbackHandler {
         this.headers.put(ChainsideHeaders.SIGNATURE, Base64.encodeBase64String(hmac));
         PaymentCompletedCallback cb = (PaymentCompletedCallback) this.handler.parse(this.headers, jsonSerialization.getBytes());
         CallbackPaymentOrder parsed = cb.getObject();
-        Assert.assertEquals(parsed.address, "testAddress");
-        Assert.assertEquals(parsed.amount, "10.00");
-        Assert.assertEquals(parsed.btc_amount, Long.valueOf(3));
+        Assert.assertEquals(parsed.uuid, "9dfb01f9-ffc8-4b96-935c-46a4f4642c37");
+
 
     }
 

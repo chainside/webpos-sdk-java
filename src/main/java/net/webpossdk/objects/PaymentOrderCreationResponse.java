@@ -12,16 +12,28 @@ import net.webpossdk.objects.schemas.*;
 import java.util.HashMap;
 
 public class PaymentOrderCreationResponse extends SdkObject{
-    public String created_at;
-        public String redirect_url;
+    public String reference;
         public String uuid;
-        public String reference;
+        public String created_at;
+        public String redirect_url;
         public Schema getSchema() throws JsonSerializationException{
             return new Schema(PaymentOrderCreationResponseSchema.jsonSchema);
         }
     public static HashMap<String, Class<? extends SdkBodyType>> getSubObjects() {
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap();
         return subObjects;
+        }
+        public String getReference(){
+            return this.reference;
+        }
+        public void setReference(String value){
+            this.reference = value;
+        }
+        public String getUuid(){
+            return this.uuid;
+        }
+        public void setUuid(String value){
+            this.uuid = value;
         }
         public String getCreatedAt(){
             return this.created_at;
@@ -34,18 +46,6 @@ public class PaymentOrderCreationResponse extends SdkObject{
         }
         public void setRedirectUrl(String value){
             this.redirect_url = value;
-        }
-        public String getUuid(){
-            return this.uuid;
-        }
-        public void setUuid(String value){
-            this.uuid = value;
-        }
-        public String getReference(){
-            return this.reference;
-        }
-        public void setReference(String value){
-            this.reference = value;
         }
         public PaymentOrderCreationResponse(){}
 }

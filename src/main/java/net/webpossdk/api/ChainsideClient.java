@@ -27,6 +27,50 @@ public class ChainsideClient{
 
 
     }
+    public PaymentOrderDeletionResponse deletePaymentOrder(String paymentOrderUuid)
+        throws SdkException{
+        DeletePaymentOrderAction action = (DeletePaymentOrderAction)this.factory.make("deletePaymentOrder");
+        action.setPaymentOrderUuid(paymentOrderUuid);
+        return (PaymentOrderDeletionResponse)action.run();
+        }
+    public PaymentOrderRetrieval getPaymentOrder(String paymentOrderUuid)
+        throws SdkException{
+        GetPaymentOrderAction action = (GetPaymentOrderAction)this.factory.make("getPaymentOrder");
+        action.setPaymentOrderUuid(paymentOrderUuid);
+        return (PaymentOrderRetrieval)action.run();
+        }
+    public PaymentOrderList getPaymentOrders(String page,String pageSize,String sortBy,String sortOrder,String status)
+        throws SdkException{
+        GetPaymentOrdersAction action = (GetPaymentOrdersAction)this.factory.make("getPaymentOrders");
+        if (page != null){
+        action.setPage(page);
+        }
+        if (status != null){
+        action.setStatus(status);
+        }
+        if (pageSize != null){
+        action.setPageSize(pageSize);
+        }
+        if (sortBy != null){
+        action.setSortBy(sortBy);
+        }
+        if (sortOrder != null){
+        action.setSortOrder(sortOrder);
+        }
+        return (PaymentOrderList)action.run();
+        }
+    public PaymentOrderCreationResponse createPaymentOrder(PaymentOrderCreation paymentOrderCreation)
+        throws SdkException{
+        CreatePaymentOrderAction action = (CreatePaymentOrderAction)this.factory.make("createPaymentOrder");
+        action.setPaymentOrderCreation(paymentOrderCreation);
+        return (PaymentOrderCreationResponse)action.run();
+        }
+    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
+        throws SdkException{
+        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
+        action.setClientCredentials(clientCredentials);
+        return (ClientCredentialsLoginResponse)action.run();
+        }
     public CallbackList getCallbacks(String paymentOrderUuid)
         throws SdkException{
         GetCallbacksAction action = (GetCallbacksAction)this.factory.make("getCallbacks");
@@ -45,50 +89,6 @@ public class ChainsideClient{
         action.setPaymentOrderUuid(paymentOrderUuid);
         action.setPaymentUpdateObject(paymentUpdateObject);
         action.run();
-        }
-    public ClientCredentialsLoginResponse clientCredentialsLogin(ClientCredentials clientCredentials)
-        throws SdkException{
-        ClientCredentialsLoginAction action = (ClientCredentialsLoginAction)this.factory.make("clientCredentialsLogin");
-        action.setClientCredentials(clientCredentials);
-        return (ClientCredentialsLoginResponse)action.run();
-        }
-    public PaymentOrderDeletionResponse deletePaymentOrder(String paymentOrderUuid)
-        throws SdkException{
-        DeletePaymentOrderAction action = (DeletePaymentOrderAction)this.factory.make("deletePaymentOrder");
-        action.setPaymentOrderUuid(paymentOrderUuid);
-        return (PaymentOrderDeletionResponse)action.run();
-        }
-    public PaymentOrderRetrieval getPaymentOrder(String paymentOrderUuid)
-        throws SdkException{
-        GetPaymentOrderAction action = (GetPaymentOrderAction)this.factory.make("getPaymentOrder");
-        action.setPaymentOrderUuid(paymentOrderUuid);
-        return (PaymentOrderRetrieval)action.run();
-        }
-    public PaymentOrderList getPaymentOrders(String page,String pageSize,String sortBy,String sortOrder,String status)
-        throws SdkException{
-        GetPaymentOrdersAction action = (GetPaymentOrdersAction)this.factory.make("getPaymentOrders");
-        if (sortOrder != null){
-        action.setSortOrder(sortOrder);
-        }
-        if (page != null){
-        action.setPage(page);
-        }
-        if (status != null){
-        action.setStatus(status);
-        }
-        if (pageSize != null){
-        action.setPageSize(pageSize);
-        }
-        if (sortBy != null){
-        action.setSortBy(sortBy);
-        }
-        return (PaymentOrderList)action.run();
-        }
-    public PaymentOrderCreationResponse createPaymentOrder(PaymentOrderCreation paymentOrderCreation)
-        throws SdkException{
-        CreatePaymentOrderAction action = (CreatePaymentOrderAction)this.factory.make("createPaymentOrder");
-        action.setPaymentOrderCreation(paymentOrderCreation);
-        return (PaymentOrderCreationResponse)action.run();
         }
     public void login() throws Exception {
         ChainsideAuthenticatedAction.login(this.ctx);
