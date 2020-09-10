@@ -15,7 +15,7 @@ public class ChainsideApiContext extends ApiContext {
     }
 
     private static HashMap<String, Object> fillConfig(HashMap<String, Object> config) {
-        if (config.get("version") == null) config.put("version", "v1");
+        if (config.get("version") == null) config.put("version", "v2");
         if (config.get("accessTokenKey") == null) config.put("accessTokenKey", "___chainside.access.token___");
         if (config.get("timeout") == null) config.put("timeout", 10);
         if (config.get("verifySSL") == null) config.put("verifySSL", true);
