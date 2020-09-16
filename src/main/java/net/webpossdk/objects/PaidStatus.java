@@ -12,20 +12,14 @@ import net.webpossdk.objects.schemas.*;
 import java.util.HashMap;
 
 public class PaidStatus extends SdkObject{
-    public String fiat;
-        public Long crypto;
+    public Long crypto;
+        public String fiat;
         public Schema getSchema() throws JsonSerializationException{
             return new Schema(PaidStatusSchema.jsonSchema);
         }
     public static HashMap<String, Class<? extends SdkBodyType>> getSubObjects() {
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap();
         return subObjects;
-        }
-        public String getFiat(){
-            return this.fiat;
-        }
-        public void setFiat(String value){
-            this.fiat = value;
         }
         public Long getCrypto(){
             return this.crypto;
@@ -35,6 +29,12 @@ public class PaidStatus extends SdkObject{
         }
         public void setCrypto(Long value){
             this.crypto = value;
+        }
+        public String getFiat(){
+            return this.fiat;
+        }
+        public void setFiat(String value){
+            this.fiat = value;
         }
         public PaidStatus(){}
 }

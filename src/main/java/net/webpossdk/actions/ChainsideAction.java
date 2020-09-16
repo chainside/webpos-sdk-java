@@ -9,6 +9,7 @@ import it.sdkboilerplate.hooks.SuccessHook;
 import it.sdkboilerplate.http.SdkResponse;
 import it.sdkboilerplate.lib.ApiContext;
 import net.webpossdk.hooks.RequestIdHook;
+import net.webpossdk.hooks.HeadersHook;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,7 +34,10 @@ public abstract class ChainsideAction extends Action {
 
     @Override
     public ArrayList<Class<? extends PreSendHook>> getPreSendHooks() {
-        return new ArrayList();
+
+        ArrayList<Class<? extends PreSendHook>> preSendHooks = new ArrayList();
+        preSendHooks.add(HeadersHook.class);
+        return preSendHooks;
     }
 
     @Override

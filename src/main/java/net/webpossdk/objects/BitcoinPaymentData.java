@@ -12,9 +12,9 @@ import net.webpossdk.objects.schemas.*;
 import java.util.HashMap;
 
 public class BitcoinPaymentData extends SdkObject{
-    public TransactionCollection transactions;
-        public String address;
+    public String address;
         public String uri;
+        public TransactionCollection transactions;
         public PaymentOrderState state;
         public Integer required_confirmations;
         public Schema getSchema() throws JsonSerializationException{
@@ -25,12 +25,6 @@ public class BitcoinPaymentData extends SdkObject{
         subObjects.put("transactions", TransactionCollection.class);
         subObjects.put("state" , PaymentOrderState.class);
         return subObjects;
-        }
-        public TransactionCollection getTransactions(){
-            return this.transactions;
-        }
-        public void setTransactions(TransactionCollection value){
-            this.transactions = value;
         }
         public String getAddress(){
             return this.address;
@@ -43,6 +37,12 @@ public class BitcoinPaymentData extends SdkObject{
         }
         public void setUri(String value){
             this.uri = value;
+        }
+        public TransactionCollection getTransactions(){
+            return this.transactions;
+        }
+        public void setTransactions(TransactionCollection value){
+            this.transactions = value;
         }
         public PaymentOrderState getState(){
             return this.state;

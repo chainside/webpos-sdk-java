@@ -12,11 +12,11 @@ import net.webpossdk.objects.schemas.*;
 import java.util.HashMap;
 
 public class RateRetrieval extends SdkObject{
-    public String source;
-        public String to;
-        public String created_at;
-        public String from;
+    public String created_at;
+        public String source;
         public String value;
+        public String from;
+        public String to;
         public Schema getSchema() throws JsonSerializationException{
             return new Schema(RateRetrievalSchema.jsonSchema);
         }
@@ -24,23 +24,23 @@ public class RateRetrieval extends SdkObject{
         HashMap<String, Class<? extends SdkBodyType>>  subObjects =  new HashMap();
         return subObjects;
         }
+        public String getCreatedAt(){
+            return this.created_at;
+        }
+        public void setCreatedAt(String value){
+            this.created_at = value;
+        }
         public String getSource(){
             return this.source;
         }
         public void setSource(String value){
             this.source = value;
         }
-        public String getTo(){
-            return this.to;
+        public String getValue(){
+            return this.value;
         }
-        public void setTo(String value){
-            this.to = value;
-        }
-        public String getCreatedAt(){
-            return this.created_at;
-        }
-        public void setCreatedAt(String value){
-            this.created_at = value;
+        public void setValue(String value){
+            this.value = value;
         }
         public String getFrom(){
             return this.from;
@@ -48,11 +48,11 @@ public class RateRetrieval extends SdkObject{
         public void setFrom(String value){
             this.from = value;
         }
-        public String getValue(){
-            return this.value;
+        public String getTo(){
+            return this.to;
         }
-        public void setValue(String value){
-            this.value = value;
+        public void setTo(String value){
+            this.to = value;
         }
         public RateRetrieval(){}
 }
